@@ -1,5 +1,5 @@
 
-export default AcceuilEtContact = () => {
+//export default AcceuilEtContact = () => {
 
 
 
@@ -307,7 +307,7 @@ export default AcceuilEtContact = () => {
         envoieFormulaire ()
 
         
-    }
+    //}
 
 
 

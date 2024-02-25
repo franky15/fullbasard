@@ -2,7 +2,7 @@ import React,{useState} from "react";
 
 import { AddAcount } from "../../pages/publicPages";
 
-import AcceuilETContact from "../../codeMerlin/AcceuilETContact";
+//import AcceuilETContact from "../../codeMerlin/AcceuilETContact";
 
 const HeaderPublic = () => {
 
@@ -15,9 +15,6 @@ const HeaderPublic = () => {
 
 	
 
-	//fonction de fermeture contact et ouverture
-	AcceuilEtContact()
-	
 	return (
 		<div className="HeaderPublic">
 			 <nav class="navbar">
