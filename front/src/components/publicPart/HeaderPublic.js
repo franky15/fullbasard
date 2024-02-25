@@ -2,6 +2,8 @@ import React,{useState} from "react";
 
 import { AddAcount } from "../../pages/publicPages";
 
+import AcceuilETContact from "../../codeMerlin/AcceuilETContact";
+
 const HeaderPublic = () => {
 
 	const [contactIsOpen,setontactIsOpen] = useState(false)
@@ -11,8 +13,11 @@ const HeaderPublic = () => {
 		setontactIsOpen(true)
 	}
 
-	//fonction de fermeture contact et ouverture
+	
 
+	//fonction de fermeture contact et ouverture
+	AcceuilEtContact()
+	
 	return (
 		<div className="HeaderPublic">
 			 <nav class="navbar">
