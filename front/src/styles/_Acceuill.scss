@@ -1,6 +1,272 @@
-/*h1{
-    color: red;
-    font-size: 50px;
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    
+}
+
+
+
+/* conteneur affichage d'images*/
+/*parent*/
+main {
+    border: solid blue;
+    height: 1600px;
+    background-color:rgb(234, 234, 234);
+}
+/*enfant1*/
+.containervoisPlus {
+    border: solid rgb(60, 129, 46);
+    height: 493px;
+    display: flex;
+    
+}
+/*enfant2*/
+.voisPlus {
+    border: solid rgb(142, 19, 19);
+    height: 190px;
+    width: 70%;
+    margin: auto;
+    margin-top: 290px;
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+}
+
+/*solution informatique*/
+.h2Center{
     text-align: center;
-    margin-top: 100px;
-}*/
+    margin-top: 80px;
+    font-weight: bold;
+    font-size: 32px;
+}
+.pCenter{
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+   
+    font-size: 20px;
+}
+
+.block1 {
+    display: flex;
+    flex-direction: column;
+    border: solid rgb(3, 3, 3);
+width: 300px;
+height: 185px;
+font-size: 20px;
+font: bold;
+}
+
+.block2 {
+    display: flex;
+    flex-direction: column;
+    border: solid rgb(3, 3, 3);
+    width: 300px;
+    height: 185px;
+    font-size: 20px;
+    font: bold;
+}
+
+.paraph1{
+    margin-left: 10px;
+}
+.paraph2{
+margin-left: 50px;
+}
+
+
+.section-info {
+    border: solid rgb(0, 0, 0);
+    height: 1000px;
+    background-color: white;
+}
+
+.colorLetterHtag{
+    color: red;
+}
+
+
+
+
+.entreprise{
+    height: 300px;
+
+}
+
+.Partons {
+    background-color:rgb(234, 234, 234);
+height: 300px;
+display: flex;
+flex-direction: column;
+
+}
+
+.pCenterViv {
+    display: flex;
+    flex-direction: column;
+    margin-right: 400px;
+}
+.notreVision{
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.pCenterGris {
+    color: rgb(146, 141, 141);
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 10px;
+    }
+.conteneur-image {
+    border: solid rgb(125, 32, 161);
+    display: flex;
+    margin-right: 200px;
+    width: 200px;
+    height: 200px;
+   margin-top: 60px;
+
+}
+.secVide {
+    background-color:white;
+    border: solid 1px rgb(0, 0, 0);
+    height: 93px;
+    margin-top: 0px;
+}
+.taille{
+    display: flex;
+    justify-content: space-between;
+}
+
+.contenaireMenu{
+/*border: solid red;*/
+display: flex;
+align-items: center;
+}
+
+.boutonContact{
+border: solid 2px ;
+height: 50px;
+border-radius: 5px;
+
+}
+
+
+
+
+/*formulaire*/
+
+.formulaireNone{
+    /*display: none;*/
+   
+    width: 100%;
+    position: absolute;
+    top: 130px;
+    z-index: 1;
+    /*border: solid yellow;*/
+    
+}
+
+.formulaireContenerFinal{
+    
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 50px;
+}
+.formulaireContact {
+    /*display: none;*/
+    width: 270px;
+    background-color:rgb(234, 234, 234);
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    
+    border-radius: 10px;
+   
+    
+}
+
+.close-button {
+    font-size: 32px;
+    position: relative;
+    right: -240px;
+    background-color: rgb(234, 234, 234);
+    color: red;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+}
+
+h2 {
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    color: #888;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    /*border: solid #2DBAEF;*/
+    border: none;
+}
+
+textarea {
+    height: 150px;  /*Hauteur plus grande pour le champ de message */
+    border: solid blue;
+
+}
+
+input[type="submit"] {
+    background-color: #ff8c00; /* Couleur orange pour le bouton envoyer */
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    width: 150px;
+
+}
+
+input[type="submit"]:hover {
+    background-color: #e07b00; /* Couleur orange légèrement plus foncée au survol */
+}
+
+
+/* gestion des styles des alerts des champs*/
+
+.prenomErreur {
+color: red;
+font-size: 10px;
+font-weight: bold;
+display: none;
+}
+
+.nomErreur {
+    color: red;
+    font-size: 10px;
+    font-weight: bold;
+    display: none;
+    }
+
+.emailErreur {
+        color: red;
+        font-size: 10px;
+        font-weight: bold;
+        display: none;
+        }
+
+.messageErreur {
+            color: red;
+            font-size: 10px;
+            font-weight: bold;
+            display: none;
+            }

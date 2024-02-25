@@ -1,0 +1,92 @@
+/* Footer */
+footer {
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    border: solid rgb(179, 44, 157);
+    height: 170px;
+    background-color: #2DBAEF;
+}
+
+.entreprise {
+    height: 300px;
+}
+
+.Partons {
+    background-color: rgb(234, 234, 234);
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.pCenterViv {
+    display: flex;
+    flex-direction: column;
+    margin-right: 400px;
+}
+
+.notreVision {
+    height: 300px;
+    display: flex;
+    justify-content: center;
+}
+
+.pCenterGris {
+    color: rgb(146, 141, 141);
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.conteneur-image {
+    border: solid rgb(125, 32, 161);
+    display: flex;
+    margin-right: 200px;
+    width: 200px;
+    height: 200px;
+    margin-top: 60px;
+}
+
+.secVide {
+    background-color: white;
+    border: solid 1px rgb(0, 0, 0);
+    height: 93px;
+    margin-top: 0px;
+}
+
+.taille {
+    display: flex;
+    justify-content: space-between;
+}
+
+.memeAdresse {
+    font-size: 20px;
+    font: bold;
+    align-items: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.memeTout {
+    display: flex;
+    font-size: 20px;
+    font: bold;
+    align-items: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.icon {
+    border: solid 1px rgb(119, 17, 17);
+    height: 70px;
+    width: 70px;
+    margin-top: 50px;
+}
+
+.footer-section {
+    justify-content: space-between;
+    display: flex;
+    border: solid rgb(45, 172, 107);
+    width: 350px;
+    height: 165px;
+    margin-left: 80px;
+    margin-right: 80px;
+}

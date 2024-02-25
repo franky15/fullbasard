@@ -1,0 +1,57 @@
+
+
+.navbar {
+    height: 200px;
+    background-color: white;
+    overflow: hidden;
+    border: solid red;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 32px;
+}
+
+.navbar .logo {
+    width:10% ;
+    display: flex;
+    align-items: center;
+    color: black;
+    margin-left: 50px;
+    
+    /*border: solid red;*/
+}
+
+.colorLetter{
+    color: #2DBAEF;
+} 
+.navbar ul {
+    /*border: solid black;*/
+    width:50% ;
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    margin-right: 50px;
+    padding: 0;
+    overflow: hidden;
+}
+
+.navbar li {
+    /*border: solid blue;*/
+    display: flex;
+    align-items: center;
+    /*flex*/
+    
+}
+
+.navbar li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbar li a:hover {
+    border-top: solid 3px;
+    color: rgb(104, 64, 12);
+}
