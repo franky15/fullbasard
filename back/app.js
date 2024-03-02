@@ -5,12 +5,16 @@ const cors = require("cors");
 //pour éxécuter le __le dirname
 const path = require('path');
 
+//importation du package pour les variables d'environnement
+const dotenv = require("dotenv").config();
+
 
 //importation de la base de données
 const db = require("./mysql.config")  
 
 //importation des modules de routages
 const usersRoutes = require("./routes/usersRoutes");
+const articlesRoutes = require("./routes/articlesRoutes");
 
 //creation de l'api
 const app = express();
@@ -22,6 +26,8 @@ app.use(express.urlencoded({ extended: true })); //l'encodage des url car on a p
 
 //mise en place des routes
 app.use("/users", usersRoutes);
+app.use("/articles", articlesRoutes);
+
 
 module.exports = app; 
 

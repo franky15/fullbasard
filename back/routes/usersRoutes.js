@@ -4,13 +4,17 @@ const router = express.Router();
 
 //importation du controller
 const usersController = require('../controllers/usersController');
+//importation du middleware de connexion
+const auth = require('../midleWares/auth');
 
 //impportation des routes
-router.post("/", usersController.createUser);
-router.delete("/:id", usersController.deleteUser);
-router.put("/:id", usersController.updateUser);
-router.get("/", usersController.getAllUsers);
-router.get("/:id", usersController.getUser);
+router.post("/login", usersController.login); //pas besoin d'authentification pour se connecter
+router.post("/signum", usersController.signum); //pas besoin d'authentification pour créer un utilisateur
+
+router.delete("/:id", auth, usersController.deleteUser);
+router.put("/:id", auth, usersController.updateUser);
+router.get("/", auth, usersController.getAllUsers);
+router.get("/:id" ,auth, usersController.getUser);
 
 
 //exportation des routes

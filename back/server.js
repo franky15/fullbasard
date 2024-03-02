@@ -4,8 +4,8 @@ const http = require("http");
 //importation de l'application
 const app = require("./app");
 
-//importation des variables d'environnement
-require("dotenv").config();
+//importation du package pour les variables d'environnement
+const dotenv = require("dotenv").config();
 
 
 
