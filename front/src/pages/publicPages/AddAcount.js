@@ -2,7 +2,7 @@ import React from "react";
 
 const AddAcount = () => {
   return (
-    <div className="AddAcount formulaireNone">
+    {/*<div className="AddAcount formulaireNone">
       <div className="formulaireContenerFinal">
         <form className="formulaireContact">
           <button className="close-button closeButton">X</button>
@@ -27,7 +27,7 @@ const AddAcount = () => {
           <input type="submit" className="submitButton" value="Envoyer" />
         </form>
       </div>
-    </div>
+  </div>*/}
   );
 };
 

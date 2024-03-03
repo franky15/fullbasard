@@ -160,11 +160,12 @@ input[type=submit]:hover {
   display: none;
 }
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-}
+/*body {
+    margin: 0;
+    font-family: Arial, sans-serif;
 
+
+}*/
 /* conteneur affichage d'images*/
 /*parent*/
 main {
@@ -214,7 +215,7 @@ main {
   width: 300px;
   height: 185px;
   font-size: 20px;
-  font: bold;
+  font-weight: bold;
 }
 
 .block2 {

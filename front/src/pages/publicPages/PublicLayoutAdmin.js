@@ -1,18 +1,17 @@
 import React from 'react';
 import {Outlet } from 'react-router-dom';
 
-import HeaderPublic from '../../components/publicPart/HeaderPublic';
 import HeaderPublicAdmin from '../../components/publicPart/HeaderPublicAdmin';
 import Footer from '../../components/Footer';
 
-const PupblicLayout = () => {
+const PublicLayoutAdmin = () => {
     return (
-        <div className='PupblicLayout'>
-            <HeaderPublic/>
+        <div className='PublicLayoutAdmin'>
+            <HeaderPublicAdmin/>
             <Outlet/>
             <Footer/>
         </div>
     );
 };
 
-export default PupblicLayout;
+export default PublicLayoutAdmin;

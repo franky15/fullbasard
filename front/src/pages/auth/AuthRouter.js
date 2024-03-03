@@ -10,7 +10,7 @@ const AuthRouter = () => {
         <Routes>
             <Route element={<LayoutAuth/>}>
                 <Route index element={<Login/>}/>
-                <Route path='login' element={<Login/>}/>
+                <Route path='/login' element={<Login/>}/>
                 <Route path='*' element= { <Error/> }/>
             </Route>
         </Routes>
