@@ -1,0 +1,105 @@
+/* Formulaire */
+.formulaireNone {
+    /* display: none; */  /* Commenté pour être visible, à décommenter si nécessaire */
+    width: 100%;
+    position: absolute;
+    top: 130px;
+    z-index: 1;
+    /* border: solid yellow; */
+}
+
+.formulaireContenerFinal {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 50px;
+}
+
+.formulaireContact {
+    /* display: none; */  /* Commenté pour être visible, à décommenter si nécessaire */
+    width: 270px;
+    background-color: rgb(234, 234, 234);
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.close-button {
+    font-size: 32px;
+    position: relative;
+    right: -240px;
+    background-color: rgb(234, 234, 234);
+    color: red;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+}
+
+h2 {
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    color: #888;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    /* border: solid #2DBAEF; */
+    border: none;
+}
+
+textarea {
+    height: 150px;  /* Hauteur plus grande pour le champ de message */
+    border: solid blue;
+}
+
+input[type="submit"] {
+    background-color: #ff8c00; /* Couleur orange pour le bouton envoyer */
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    width: 150px;
+}
+
+input[type="submit"]:hover {
+    background-color: #e07b00; /* Couleur orange légèrement plus foncée au survol */
+}
+
+/* Gestion des styles des alertes des champs */
+.prenomErreur {
+    color: red;
+    font-size: 10px;
+    font-weight: bold;
+    display: none;
+}
+
+.nomErreur {
+    color: red;
+    font-size: 10px;
+    font-weight: bold;
+    display: none;
+}
+
+.emailErreur {
+    color: red;
+    font-size: 10px;
+    font-weight: bold;
+    display: none;
+}
+
+.messageErreur {
+    color: red;
+    font-size: 10px;
+    font-weight: bold;
+    display: none;
+}

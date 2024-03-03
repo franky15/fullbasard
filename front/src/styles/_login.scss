@@ -1,4 +1,6 @@
-.formulaireNoneCreer{
+/*formulaire connexion*/
+
+.formulaireNoneConnexion{
     /*display: none;*/
    
 width: 100%;
@@ -9,13 +11,13 @@ z-index: 1;
     
 }
 
-.formulaireContenerFinalCreer{
+.formulaireContenerFinalConnexion{
     
 display: flex;
 justify-content: flex-end;
 padding-right: 50px;
 }
-.formulaireCompteCreer {
+.formulaireConnexion {
     /*display: none;*/
 width: 270px;
 background-color:rgb(234, 234, 234);
@@ -24,7 +26,7 @@ box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;   
 }
 
-.closeButtonCreer {
+.closeButtonConex {
 font-size: 32px;
 position: relative;
 right: -240px;
@@ -86,31 +88,16 @@ textarea {
 
 /* gestion des styles des alerts des champs*/
 
-.prenomErreurCreer {
+.emailConexErreur {
 color: red;
 font-size: 10px;
 font-weight: bold;
 display: none;
 }
 
-.nomErreurCreer {
+.passeErreur {
     color: red;
     font-size: 10px;
     font-weight: bold;
     display: none;
     }
-
-
-.emailErreurCreer {
-        color: red;
-        font-size: 10px;
-        font-weight: bold;
-        display: none;
-        }
-        
-.telErreurCreer {
-            color: red;
-            font-size: 10px;
-            font-weight: bold;
-            display: none;
-            }
