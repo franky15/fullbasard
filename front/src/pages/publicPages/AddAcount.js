@@ -2,33 +2,33 @@ import React from "react";
 
 const AddAcount = () => {
   return (
-    <div class="formulaireNoneCreer">
-    <div class="formulaireContenerFinalCreer">
-    <form  class="formulaireCompteCreer">
-        <button class="close-button closeButtonCreer" >X</button>
-        <h2>Créer un compte</h2>
+    <div className="formulaireNoneCreer">
+        <div className="formulaireContenerFinalCreer">
+            <form className="formulaireCompteCreer">
+                <button className="close-button closeButtonCreer">X</button>
+                <h2>Créer un compte</h2>
 
-        <label for="prenom"></label>
-        <p class="prenomErreurCreer">Veillez correctement remplir le champs du prenom</p>
-        <input type="text" class="prenomCreer" name="prenom" placeholder="Prénom" >
+                <label htmlFor="prenom">Prénom :</label>
+                <p className="prenomErreurCreer">Veuillez correctement remplir le champ du prénom</p>
+                <input type="text" className="prenomCreer" name="prenom" placeholder="Prénom" />
 
-        <label for="nom"></label>
-        <p class="nomErreurCreer">Veillez correctement remplir le champs du nom</p>
-        <input type="text" class="nomCreer" name="nom" placeholder="Nom" >
+                <label htmlFor="nom">Nom :</label>
+                <p className="nomErreurCreer">Veuillez correctement remplir le champ du nom</p>
+                <input type="text" className="nomCreer" name="nom" placeholder="Nom" />
 
-        <label for="email"></label>
-        <p class="emailErreurCreer">Veillez correctement remplir le champs email</p>
-        <input type="email" class="emailCreer" name="email" placeholder="Email" >
+                <label htmlFor="email">Email :</label>
+                <p className="emailErreurCreer">Veuillez correctement remplir le champ email</p>
+                <input type="email" className="emailCreer" name="email" placeholder="Email" />
 
-        <label for="télépone"></label>
-        <p class="telErreurCreer">Veillez correctement remplir le champs du prenom</p>
-        <input type="number" class="telephoneCreer" name="telephone" placeholder="tèl" >
+                <label htmlFor="telephone">Téléphone :</label>
+                <p className="telErreurCreer">Veuillez correctement remplir le champ du téléphone</p>
+                <input type="tel" className="telephoneCreer" name="telephone" placeholder="Téléphone" />
 
+                <input type="submit" className="submitButtonCreer" value="Valider" />
+            </form>
+        </div>
+      </div>
 
-        <input type="submit" class="submitButtonCreer"  value="Valider">
-    </form>
-    </div>
-</div>
   );
 };
 

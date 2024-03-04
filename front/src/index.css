@@ -54,24 +54,23 @@
   color: rgb(104, 64, 12);
 }
 
-/* Formulaire */
-.formulaireNone {
-  /* display: none; */ /* Commenté pour être visible, à décommenter si nécessaire */
+.formulaireNoneCreer {
+  /*display: none;*/
   width: 100%;
   position: absolute;
   top: 130px;
   z-index: 1;
-  /* border: solid yellow; */
+  /*border: solid yellow;*/
 }
 
-.formulaireContenerFinal {
+.formulaireContenerFinalCreer {
   display: flex;
   justify-content: flex-end;
   padding-right: 50px;
 }
 
-.formulaireContact {
-  /* display: none; */ /* Commenté pour être visible, à décommenter si nécessaire */
+.formulaireCompteCreer {
+  /*display: none;*/
   width: 270px;
   background-color: rgb(234, 234, 234);
   padding: 20px;
@@ -79,7 +78,7 @@
   border-radius: 10px;
 }
 
-.close-button {
+.closeButtonCreer {
   font-size: 32px;
   position: relative;
   right: -240px;
@@ -91,6 +90,10 @@
 }
 
 h2 {
+  text-align: center;
+}
+
+p {
   text-align: center;
 }
 
@@ -108,16 +111,16 @@ textarea {
   margin-bottom: 10px;
   box-sizing: border-box;
   border-radius: 5px;
-  /* border: solid #2DBAEF; */
+  /*border: solid #2DBAEF;*/
   border: none;
 }
 
 textarea {
-  height: 150px; /* Hauteur plus grande pour le champ de message */
+  height: 150px; /*Hauteur plus grande pour le champ de message */
   border: solid blue;
 }
 
-input[type=submit] {
+.submitButton[type=submit] {
   background-color: #ff8c00; /* Couleur orange pour le bouton envoyer */
   color: white;
   padding: 10px;
@@ -127,33 +130,33 @@ input[type=submit] {
   width: 150px;
 }
 
-input[type=submit]:hover {
+.submitButton[type=submit]:hover {
   background-color: #e07b00; /* Couleur orange légèrement plus foncée au survol */
 }
 
-/* Gestion des styles des alertes des champs */
-.prenomErreur {
+/* gestion des styles des alerts des champs*/
+.prenomErreurCreer {
   color: red;
   font-size: 10px;
   font-weight: bold;
   display: none;
 }
 
-.nomErreur {
+.nomErreurCreer {
   color: red;
   font-size: 10px;
   font-weight: bold;
   display: none;
 }
 
-.emailErreur {
+.emailErreurCreer {
   color: red;
   font-size: 10px;
   font-weight: bold;
   display: none;
 }
 
-.messageErreur {
+.telErreurCreer {
   color: red;
   font-size: 10px;
   font-weight: bold;
@@ -506,6 +509,322 @@ footer {
   height: 165px;
   margin-left: 80px;
   margin-right: 80px;
+}
+
+.blog {
+  border: solid red;
+  display: flex;
+  justify-content: space-between;
+  height: 700px;
+  margin-top: 140px;
+  /*margin-right: 500px;*/
+}
+
+.publication {
+  border: solid rgb(34, 16, 16);
+  display: flex;
+  height: 697px;
+  margin-top: 0px;
+  width: 75%;
+}
+
+.article {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid 1px rgb(213, 213, 213);
+  height: 400px;
+  width: 30%;
+  margin-top: 170px;
+  margin-left: 30px;
+  color: #2DBAEF;
+  border-radius: 10px;
+}
+
+.recherche {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: solid rgb(113, 129, 234);
+  display: flex;
+  width: 25%;
+}
+
+.barREcherche {
+  display: flex;
+  top: 0px;
+  height: 40px;
+  margin-top: 5%;
+  border: solid 2px hsl(0, 9%, 60%);
+  width: 90%;
+}
+
+.search-input {
+  height: 40px;
+  margin-top: 0px;
+  /*border: solid 1px #888;*/
+}
+
+.puce {
+  display: flex;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 200px;
+  margin-left: -160px;
+  border: solid rgb(115, 115, 176);
+}
+
+.category-title {
+  margin-right: 110px;
+}
+
+.categories-list {
+  display: flex;
+  flex-direction: column;
+  color: #2DBAEF;
+  font-weight: bold;
+  list-style-type: none;
+}
+
+.h1articles {
+  font-size: xx-large;
+  margin-left: 30px;
+}
+
+/*formulaire connexion*/
+.formulaireNoneConnexion {
+  /*display: none;*/
+  width: 96%;
+  position: absolute;
+  top: 150px;
+  z-index: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+.formulaireNoneConnexion .containerLogin {
+  width: 22%;
+  border: solid 0;
+  background-color: rgb(234, 234, 234);
+  padding: 20px;
+  box-shadow: 4px 0px 14px 2px rgba(0, 0, 0, 0.66);
+  border-radius: 10px;
+}
+.formulaireNoneConnexion .Loginformulaire .closeButtonContainer {
+  text-align: end;
+}
+.formulaireNoneConnexion .Loginformulaire .closeButtonConex {
+  width: 10%;
+  font-size: 32px;
+  border: none;
+  background-color: rgb(234, 234, 234);
+  color: red;
+  cursor: pointer;
+}
+.formulaireNoneConnexion .Loginformulaire p {
+  display: none;
+  text-align: start;
+  color: red;
+}
+.formulaireNoneConnexion .Loginformulaire input {
+  height: 50px;
+}
+.formulaireNoneConnexion .authentificationEchoue {
+  color: red;
+  display: none;
+}
+.formulaireNoneConnexion .submitButtonLogin {
+  background-color: #ff8c00;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  width: 150px;
+  text-align: center;
+}
+.formulaireNoneConnexion .emailConexErreur {
+  color: red;
+  font-size: 10px;
+  font-weight: bold;
+  display: none;
+}
+.formulaireNoneConnexion .passeErreur {
+  color: red;
+  font-size: 10px;
+  font-weight: bold;
+  display: none;
+}
+
+/*
+.closeButtonConex {
+    font-size: 32px;
+    position: relative;
+    right: -260px;
+    background-color: rgb(234, 234, 234);
+    color: red;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+
+}
+
+h2 {
+    text-align: center;
+}
+
+p {
+    text-align: center;
+
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    color: #888;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+
+    border: none;
+}
+
+textarea {
+    height: 150px;  
+    border: solid blue;
+
+}
+
+.submitButton[type="submit"] {
+    background-color: #ff8c00; 
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    width: 150px;
+
+}
+
+.submitButton[type="submit"]:hover {
+    background-color: #e07b00; 
+}
+
+
+*/
+/* gestion des styles des alerts des champs*/
+/* Formulaire */
+.formulaireNone {
+  /* display: none; */ /* Commenté pour être visible, à décommenter si nécessaire */
+  width: 100%;
+  position: absolute;
+  top: 130px;
+  z-index: 1;
+  /* border: solid yellow; */
+}
+
+.formulaireContenerFinal {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 50px;
+}
+
+.formulaireContact {
+  /* display: none; */ /* Commenté pour être visible, à décommenter si nécessaire */
+  width: 270px;
+  background-color: rgb(234, 234, 234);
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.close-button {
+  font-size: 32px;
+  position: relative;
+  right: -240px;
+  background-color: rgb(234, 234, 234);
+  color: red;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+}
+
+h2 {
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+  color: #888;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  /* border: solid #2DBAEF; */
+  border: none;
+}
+
+textarea {
+  height: 150px; /* Hauteur plus grande pour le champ de message */
+  border: solid blue;
+}
+
+input[type=submit] {
+  background-color: #ff8c00; /* Couleur orange pour le bouton envoyer */
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  width: 150px;
+}
+
+input[type=submit]:hover {
+  background-color: #e07b00; /* Couleur orange légèrement plus foncée au survol */
+}
+
+/* Gestion des styles des alertes des champs */
+.prenomErreur {
+  color: red;
+  font-size: 10px;
+  font-weight: bold;
+  display: none;
+}
+
+.nomErreur {
+  color: red;
+  font-size: 10px;
+  font-weight: bold;
+  display: none;
+}
+
+.emailErreur {
+  color: red;
+  font-size: 10px;
+  font-weight: bold;
+  display: none;
+}
+
+.messageErreur {
+  color: red;
+  font-size: 10px;
+  font-weight: bold;
+  display: none;
 }
 
 /*# sourceMappingURL=index.css.map */

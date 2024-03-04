@@ -16,7 +16,7 @@ const HeaderPublic = () => {
 	const openContact = ()=>{setContactIsOpen(true)}
 
 	//gestion du state du formulaire de connexion
-	const [conexionIsOpen,setConexionIsOpen] = useState(false)
+	const [conexionIsOpen,setConexionIsOpen] = useState(false) //false
 	const lockConexion = ()=> {setConexionIsOpen(false)}
 	const openConexion = ()=>{  setConexionIsOpen(true)}
 
@@ -37,12 +37,12 @@ const HeaderPublic = () => {
 					<li><Link to="/blog/articles">Blog</Link></li>
 					<li className="boutonContact" onClick={() => openContact()}><Link >Contact</Link></li>
 					<li onClick={() => openSignum()}><Link >Créer un compte</Link></li>
-					<li className="boutonContact boutonConexion" onClick={() => openConexion()}><Link to="login">connexion</Link></li>
+					<li className="boutonContact boutonConexion" onClick={() => openConexion()}><Link >connexion</Link></li>
 
 				</ul>
 			</nav>
 			{ contactIsOpen && <Contact lockContact={lockContact} />}
-			{ /*conexionIsOpen && <Login lockConexion={lockConexion} />*/}
+			{ conexionIsOpen && <Login lockConexion={lockConexion} />}
 			{ signumIsOpen && <AddAcount lockSignum={lockSignum} />}
 		</div>
 	);

@@ -18,11 +18,11 @@ const PublicRouter = () => {
                 <Route path="/" element={<Acceuil/>}/>
                 <Route path="/about" element={<AboutUs/>}/>
                 {/*<Route path="/sigh" element={<AddAcount/>}/>*/}
-                <Route path="/login" element={<Login/>}/>
+                {/*<Route path="/login" element={<Login/>}/>*/}
                 <Route path="/contact" element={<Contact/>}/>
 
-              
-				<Route path="/blog/articles" element={<GetAllArticles />} />
+                <Route path="/blog/articles" element={<Blog />} />
+				{/*<Route path="/blog/articles" element={<GetAllArticles />} />*/}
 				<Route path="/blog/articles/:id" element={<GetOneArticle />} />
                 <Route path='*' element= { <Error/> }/>
             </Route>

@@ -5,7 +5,7 @@ import Axios from "./Caller.services"
 // gestion de la connexion
 let login = (loginObject) => {
     
-    return Axios.post("/auth/login", loginObject) //ici on aura donc la requête  axios.post("http://localhost:3000/auth/login", loginObject)
+    return Axios.post("/users/login", loginObject) //ici on aura donc la requête  axios.post("http://localhost:3000/auth/login", loginObject)
 }                                      
 
 

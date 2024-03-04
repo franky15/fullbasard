@@ -10,9 +10,11 @@ const dotenv = require("dotenv").config();
 exports.login = (req, res, next) => {
 	console.log("*** bienvenue dans login ***");
 
-	console.log(req.body);
+	//console.log(req.body);
 
 	let { email, password } = req.body;
+
+	console.log(email, password);
 
 	//requete récupérant l'utilisateur
 	const sqlSelectUser = `SELECT * FROM Users WHERE email = '${email}' `;
@@ -23,21 +25,31 @@ exports.login = (req, res, next) => {
 
 			//envoie d'une réponse d'erreur au front
 			res.status(500).json({ message: "**erreur dans la requete" });
+		
 		} else {
 			console.log("requete réussie");
 			console.log(resSqlSelectUser);
 
+			if(resSqlSelectUser.length !== 0 ){
+				
+			
 			//comparaison des deux hash de mot de passe
 			bcrypt
 				.compare(password, resSqlSelectUser[0].password)
 				.then((valid) => {
+
+					console.log("***valid")
+					console.log(valid)
+
 					if (!valid) {
 						//envoie d'une réponse d'erreur au front
-						res
-							.status(401)
-							.json({ message: "mot de passe incorrect ou email incorrect" });
+						res.status(401).json({ message: "mot de passe incorrect ou email incorrect" });
+						console.error("mot de passe incorrect ou email incorrect :", err);
+							
 					} else {
+
 						res.status(200).json({
+
 							//création du token
 							token: jwt.sign(
 								{
@@ -46,13 +58,25 @@ exports.login = (req, res, next) => {
 								},
 								process.env.TOKEN_KEY, //clé secrete
 								{ expiresIn: process.env.TOKEN_EXPIRE }, //date d'expiration
+							
 							),
+
 						});
-					}
+					} 
+
 				})
 				.catch((err) => {
+					//envoie d'une réponse d'erreur au front
+					console.error("Erreur de connexion :", err);
 					res.status(500).json({ err });
+				
 				});
+
+			}else{
+
+				console.error("Erreur de connexion :");
+				res.status(401).json({ message: "Erreur de connexion" });
+			}
 		}
 	});
 };
@@ -86,49 +110,54 @@ exports.signum = (req, res, next) => {
 			//envoie d'une réponse d'erreur au front
 			res.status(400).json({ message: "erreur dans la requete" });
 		} else {
+
 			console.log("requete réussie");
 
-			//recherche de l'utilisateur dans la liste reçu de la base de données
-			let userExist = resSqlSelectAllUsers.find((user) => user.email === email);
+			//if(resSqlSelectAllUsers.length !== 0 ){
+				
+				//recherche de l'utilisateur dans la liste reçu de la base de données
+				let userExist = resSqlSelectAllUsers.find((user) => user.email === email);
 
-			if (userExist) {
-				//envoie d'une réponse d'erreur au front
-				console.log("***cet utilisateur existe déjà");
-				res.status(500).json({ message: "cet utilisateur existe déjà" });
-			} else {
-				console.log("**** partie bcrypt");
+				if (userExist) {
+					//envoie d'une réponse d'erreur au front
+					console.log("***cet utilisateur existe déjà");
+					res.status(500).json({ message: "cet utilisateur existe déjà" });
+				} else {
+					console.log("**** partie bcrypt");
 
-				//hashage du mot de passe
-				bcrypt
-					.hash(password, parseInt(process.env.BCRYPT_SALT_ROUND))
-					.then((hash) => {
-						console.log("***testttttttt");
-						// La requête SQL utilise directement le hash
-						const sqlInsertUser = `INSERT INTO Users (role, nom, prenom, email, password) VALUES ('${role}', '${nom}', '${prenom}', '${email}', '${hash}')`;
+					//hashage du mot de passe
+					bcrypt
+						.hash(password, parseInt(process.env.BCRYPT_SALT_ROUND))
+						.then((hash) => {
+							console.log("***testttttttt");
+							// La requête SQL utilise directement le hash
+							const sqlInsertUser = `INSERT INTO Users (role, nom, prenom, email, password) VALUES ('${role}', '${nom}', '${prenom}', '${email}', '${hash}')`;
 
-						DB.query(sqlInsertUser, (err, resSqlInsertUser) => {
-							console.log("***sqlInsertUser");
-							console.log(sqlInsertUser);
+							DB.query(sqlInsertUser, (err, resSqlInsertUser) => {
+								console.log("***sqlInsertUser");
+								console.log(sqlInsertUser);
 
-							if (err) {
-								console.log("erreur dans la requete");
-								console.log(err.message);
+								if (err) {
+									console.log("erreur dans la requete");
+									console.log(err.message);
 
-								//envoie d'une réponse d'erreur au front
-								res.status(500).json({ message: "erreur dans la requete" });
-							} else {
-								console.log("requete réussie");
-								console.log("***utilisteur créé avec succès");
+									//envoie d'une réponse d'erreur au front
+									res.status(500).json({ message: "erreur dans la requete" });
+								} else {
+									console.log("requete réussie");
+									console.log("***utilisteur créé avec succès");
 
-								//envoie d'une réponse de succès au front
-								res.status(200).json(resSqlInsertUser);
-							}
+									//envoie d'une réponse de succès au front
+									res.status(200).json(resSqlInsertUser);
+								}
+							});
+						})
+						.catch((err) => {
+							res.status(500).json({ err });
 						});
-					})
-					.catch((err) => {
-						res.status(500).json({ err });
-					});
-			}
+				}
+
+			//}
 		}
 	});
 };
@@ -285,21 +314,12 @@ exports.getUser = (req, res, next) => {
 
 			if( role === "admin" || user.id === id ){
 
-				/*DB.query(sqlSelectUser, (err, resSqlSelectUser) => {
-					if (err) {
-						console.log("erreur dans la requete");
-						console.log(err.message);
-			
-						//envoie d'une réponse d'erreur au front
-						res.status(500).json({ message: "erreur dans la requete" });
-					} else {*/
-						console.log("requete réussie");
-						console.log(resSqlSelectUser);
-			
-						//envoie d'une réponse de succès au front
-						res.status(200).json(resSqlSelectUser);
-					/*}
-				   });*/
+				console.log("requete réussie");
+				console.log(resSqlSelectUser);
+	
+				//envoie d'une réponse de succès au front
+				res.status(200).json(resSqlSelectUser);
+					
 
 			}else{
 
