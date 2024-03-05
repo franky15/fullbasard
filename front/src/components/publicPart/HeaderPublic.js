@@ -1,3 +1,5 @@
+
+//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 import React,{useState} from "react";
 import { Link } from "react-router-dom"
 
@@ -5,26 +7,51 @@ import { AddAcount } from "../../pages/publicPages";
 import Login from "../../pages/auth/Login";
 import {Contact }from "../../pages/publicPages";
  
+//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
 //import AcceuilETContact from "../../codeMerlin/AcceuilETContact";
 
 const HeaderPublic = () => {
 
+	//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
 	//gestion du state du formulaire de contact
-	const [contactIsOpen,setContactIsOpen] = useState(false)
+	const [contactIsOpen,setContactIsOpen] = useState(false) 
 	const lockContact = ()=> {setContactIsOpen(false)}
-	const openContact = ()=>{setContactIsOpen(true)}
+	const openContact = ()=>{
+
+        setContactIsOpen(true)
+		//fermeture des autres fenêtres
+		lockConexion()
+		lockSignum()
+    }
+	
 
 	//gestion du state du formulaire de connexion
-	const [conexionIsOpen,setConexionIsOpen] = useState(false) //false
+	const [conexionIsOpen,setConexionIsOpen] = useState(false) 
 	const lockConexion = ()=> {setConexionIsOpen(false)}
-	const openConexion = ()=>{  setConexionIsOpen(true)}
+	const openConexion = ()=>{ 
+		
+		setConexionIsOpen(true)
+		//fermeture des autres fenêtres
+		lockSignum()
+		lockContact()
+	}
 
 	//gestion du state du formulaire de connexion
 	const [signumIsOpen,setSignumIsOpen] = useState(false)
 	const lockSignum = ()=> {setSignumIsOpen(false)}
-	const openSignum = ()=>{setSignumIsOpen(true)}
+	const openSignum = ()=>{
 
+		setSignumIsOpen(true)
+
+		//fermeture des autres fenêtres
+		lockConexion()
+		lockContact()
+	
+	}
+
+	//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 	
 	return (
 		<div className="HeaderPublic">
@@ -41,7 +68,7 @@ const HeaderPublic = () => {
 
 				</ul>
 			</nav>
-			{ contactIsOpen && <Contact lockContact={lockContact} />}
+			{ contactIsOpen && <Contact lockContact={lockContact}  />}
 			{ conexionIsOpen && <Login lockConexion={lockConexion} />}
 			{ signumIsOpen && <AddAcount lockSignum={lockSignum} />}
 		</div>

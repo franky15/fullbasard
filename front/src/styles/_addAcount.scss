@@ -1,38 +1,47 @@
 .formulaireNoneCreer{
     /*display: none;*/
    
-width: 100%;
+width: 85%;
 position: absolute;
 top: 130px;
 z-index: 1;
-/*border: solid yellow;*/
+//border: solid yellow;
     
+}
+
+.formulaireContainerCreer{
+
+    display: flex;
+    justify-content: flex-end;
+   
+   // border: solid red;
 }
 
 .formulaireContenerFinalCreer{
     
-display: flex;
-justify-content: flex-end;
-padding-right: 50px;
+    width: 25%;
+    padding: 20px;
+    
+    box-shadow: 4px 0px 14px 2px rgba(0,0,0,0.66);
+    background-color:rgb(234, 234, 234);
+    border-radius: 10px;
+    //border: solid blue;
 }
-.formulaireCompteCreer {
-    /*display: none;*/
-width: 270px;
-background-color:rgb(234, 234, 234);
-padding: 20px;
-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
-    border-radius: 10px;   
+.containerbuttonCreer {
+   text-align: end;
+    //border: solid red;
+      
 }
 
 .closeButtonCreer {
-font-size: 32px;
-position: relative;
-right: -240px;
-background-color: rgb(234, 234, 234);
-color: red;
-border: none;
-padding: 5px;
-cursor: pointer;
+    font-size: 32px;
+    //position: relative;
+    //right: -240px;
+    background-color: rgb(234, 234, 234);
+    color: red;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
 }
 
 h2 {
@@ -53,6 +62,7 @@ label {
 input,
 textarea {
     width: 100%;
+    height: 50px;
     padding: 8px;
     margin-top: 5px;
     margin-bottom: 10px;
@@ -68,7 +78,7 @@ textarea {
 
 }
 
-.submitButton[type="submit"] {
+.submitButtonCreer {
     background-color: #ff8c00; /* Couleur orange pour le bouton envoyer */
     color: white;
     padding: 10px;
@@ -102,15 +112,15 @@ display: none;
 
 
 .emailErreurCreer {
-        color: red;
-        font-size: 10px;
-        font-weight: bold;
-        display: none;
-        }
+    color: red;
+    font-size: 10px;
+    font-weight: bold;
+    display: none;
+}
         
-.telErreurCreer {
-            color: red;
-            font-size: 10px;
-            font-weight: bold;
-            display: none;
-            }
+.passwordUserErreurCreer {
+    color: red;
+    font-size: 10px;
+    font-weight: bold;
+    display: none;
+}

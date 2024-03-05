@@ -56,32 +56,31 @@
 
 .formulaireNoneCreer {
   /*display: none;*/
-  width: 100%;
+  width: 85%;
   position: absolute;
   top: 130px;
   z-index: 1;
-  /*border: solid yellow;*/
+}
+
+.formulaireContainerCreer {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .formulaireContenerFinalCreer {
-  display: flex;
-  justify-content: flex-end;
-  padding-right: 50px;
+  width: 25%;
+  padding: 20px;
+  box-shadow: 4px 0px 14px 2px rgba(0, 0, 0, 0.66);
+  background-color: rgb(234, 234, 234);
+  border-radius: 10px;
 }
 
-.formulaireCompteCreer {
-  /*display: none;*/
-  width: 270px;
-  background-color: rgb(234, 234, 234);
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
+.containerbuttonCreer {
+  text-align: end;
 }
 
 .closeButtonCreer {
   font-size: 32px;
-  position: relative;
-  right: -240px;
   background-color: rgb(234, 234, 234);
   color: red;
   border: none;
@@ -106,6 +105,7 @@ label {
 input,
 textarea {
   width: 100%;
+  height: 50px;
   padding: 8px;
   margin-top: 5px;
   margin-bottom: 10px;
@@ -120,7 +120,7 @@ textarea {
   border: solid blue;
 }
 
-.submitButton[type=submit] {
+.submitButtonCreer {
   background-color: #ff8c00; /* Couleur orange pour le bouton envoyer */
   color: white;
   padding: 10px;
@@ -156,7 +156,7 @@ textarea {
   display: none;
 }
 
-.telErreurCreer {
+.passwordUserErreurCreer {
   color: red;
   font-size: 10px;
   font-weight: bold;
@@ -724,52 +724,54 @@ textarea {
 /* Formulaire */
 .formulaireNone {
   /* display: none; */ /* Commenté pour être visible, à décommenter si nécessaire */
-  width: 100%;
+  width: 77%;
   position: absolute;
-  top: 130px;
+  top: 139px;
   z-index: 1;
-  /* border: solid yellow; */
 }
-
-.formulaireContenerFinal {
+.formulaireNone .contenerContact {
+  width: 100%;
   display: flex;
   justify-content: flex-end;
-  padding-right: 50px;
+  /* Gestion des styles des alertes des champs */
 }
-
-.formulaireContact {
-  /* display: none; */ /* Commenté pour être visible, à décommenter si nécessaire */
-  width: 270px;
+.formulaireNone .contenerContact .formulaireContenerContact {
+  width: 35%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   background-color: rgb(234, 234, 234);
+  border-radius: 10px;
+  box-shadow: 4px 0px 14px 2px rgba(0, 0, 0, 0.66);
   padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.formulaireNone .contenerContact .formulaireContactItem {
+  /* display: none; */ /* Commenté pour être visible, à décommenter si nécessaire */
   border-radius: 10px;
 }
-
-.close-button {
+.formulaireNone .contenerContact .containercloseButton {
+  text-align: end;
+}
+.formulaireNone .contenerContact .closeButtonContact {
   font-size: 32px;
-  position: relative;
-  right: -240px;
   background-color: rgb(234, 234, 234);
   color: red;
   border: none;
   padding: 5px;
   cursor: pointer;
 }
-
-h2 {
+.formulaireNone .contenerContact h2 {
   text-align: center;
 }
-
-label {
+.formulaireNone .contenerContact label {
   display: block;
   margin-top: 10px;
   color: #888;
 }
-
-input,
-textarea {
+.formulaireNone .contenerContact input,
+.formulaireNone .contenerContact textarea {
   width: 100%;
+  height: 50px;
   padding: 8px;
   margin-top: 5px;
   margin-bottom: 10px;
@@ -778,53 +780,44 @@ textarea {
   /* border: solid #2DBAEF; */
   border: none;
 }
-
-textarea {
+.formulaireNone .contenerContact textarea {
   height: 150px; /* Hauteur plus grande pour le champ de message */
-  border: solid blue;
 }
-
-input[type=submit] {
+.formulaireNone .contenerContact input[type=submit]:hover {
+  background-color: #e07b00; /* Couleur orange légèrement plus foncée au survol */
+}
+.formulaireNone .contenerContact .prenomErreur {
+  color: red;
+  font-size: 10px;
+  font-weight: bold;
+  display: none;
+}
+.formulaireNone .contenerContact .nomErreur {
+  color: red;
+  font-size: 10px;
+  font-weight: bold;
+  display: none;
+}
+.formulaireNone .contenerContact .emailErreur {
+  color: red;
+  font-size: 10px;
+  font-weight: bold;
+  display: none;
+}
+.formulaireNone .contenerContact .messageErreur {
+  color: red;
+  font-size: 10px;
+  font-weight: bold;
+  display: none;
+}
+.formulaireNone .contenerContact .submitButtonContact {
+  width: 40%;
   background-color: #ff8c00; /* Couleur orange pour le bouton envoyer */
   color: white;
   padding: 10px;
   cursor: pointer;
   border: none;
   border-radius: 10px;
-  width: 150px;
-}
-
-input[type=submit]:hover {
-  background-color: #e07b00; /* Couleur orange légèrement plus foncée au survol */
-}
-
-/* Gestion des styles des alertes des champs */
-.prenomErreur {
-  color: red;
-  font-size: 10px;
-  font-weight: bold;
-  display: none;
-}
-
-.nomErreur {
-  color: red;
-  font-size: 10px;
-  font-weight: bold;
-  display: none;
-}
-
-.emailErreur {
-  color: red;
-  font-size: 10px;
-  font-weight: bold;
-  display: none;
-}
-
-.messageErreur {
-  color: red;
-  font-size: 10px;
-  font-weight: bold;
-  display: none;
 }
 
 /*# sourceMappingURL=index.css.map */

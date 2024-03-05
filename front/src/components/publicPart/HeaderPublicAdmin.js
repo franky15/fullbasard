@@ -9,7 +9,14 @@ const HeaderPublicAdmin = () => {
     //gestion du state du formulaire de contact
 	const [contactIsOpen,setContactIsOpen] = useState(false)
 	const lockContact = ()=> {setContactIsOpen(false)}
-	const openContact = ()=>{setContactIsOpen(true)}
+
+	const openContact = ()=>{
+
+        
+        const formulaireNone = document.querySelector(".formulaireNone")
+        formulaireNone.style.display= "none"
+        setContactIsOpen(true)
+    }
 
 
     //gestion de  la connexion

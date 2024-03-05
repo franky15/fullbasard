@@ -62,7 +62,7 @@ exports.login = (req, res, next) => {
 							),
 
 						});
-					} 
+					}  
 
 				})
 				.catch((err) => {

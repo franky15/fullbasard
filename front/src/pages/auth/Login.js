@@ -21,20 +21,13 @@ const Login = ({ lockConexion }) => {
 	//logique de toute la page
 	useEffect(() => {
 		// reccupration du formulaire de connexion
-		/*
-		const closeButtonConex = document.querySelector('.closeButtonConex');
-		const Loginformulaire = document.querySelector('.Loginformulaire');
-			const motDePasseConexAlert = document.querySelector('.passeErreur');
-		const emailPersonneConex = document.querySelector('.conexEmail');*/
-
+		
 		const emailLogin = document.querySelector(".emailLogin");
 		const emailLoginErreur = document.querySelector(".emailLoginErreur");
 		const motDePasseLogin = document.querySelector(".motDePasseLogin");
 		const passeLoginErreur = document.querySelector(".passeLoginErreur");
 
 		const submitButtonLogin = document.querySelector(".submitButtonLogin");
-
-		/***** formulaire de connexion *****/
 
 		/******création d'un objet qui contiendra les information de connexion*/
 
@@ -90,7 +83,7 @@ const Login = ({ lockConexion }) => {
 		function envoieFormulaire() {
 			//regex
 			const emailRegexConex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-			const passeRegexConex =  /^.{1,7}$/; /* /^[A-Za-zÀ-ÖØ-öø-ÿ-]+$/;*/
+			const passeRegexConex =   /^[A-Za-zÀ-ÖØ-öø-ÿ-]+$/; /* /^.{1,7}$/;*/
 
 			submitButtonLogin.addEventListener("click", function (event) {
 				//permet de choisir quand  est ce qu'on envoie le formulaire
@@ -134,7 +127,7 @@ const Login = ({ lockConexion }) => {
 
 	//regex
 	const emailRegexConex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-	const passeRegexConex = /^.{1,7}$/; /* /^[A-Za-zÀ-ÖØ-öø-ÿ-]+$/;*/
+	const passeRegexConex = /^[A-Za-zÀ-ÖØ-öø-ÿ-]+$/; /*  /^.{1,7}$/;*/
 
 	//vérification et validation du formulaire
 	
@@ -150,6 +143,8 @@ const Login = ({ lockConexion }) => {
 		const submitButtonLogin = document.querySelector(".submitButtonLogin");
 		const authentificationErreur = document.querySelector(".authentificationEchoue");
 		const formulaireNoneConnexion = document.querySelector(".formulaireNoneConnexion");
+
+		const formulaireContact = document.querySelector(".Loginformulaire");
 		//verificationChamps();
 
 		///////////////////////////
@@ -170,16 +165,6 @@ const Login = ({ lockConexion }) => {
 		//}
 
 		//vérification du champ  password du formulaire
-
-		//if (password !== " ") {
-
-			console.log("****Test password");
-
-			/*const emailLogin = document.querySelector(".emailLogin");
-			const emailLoginErreur = document.querySelector(".emailLoginErreur");
-			const motDePasseLogin = document.querySelector(".motDePasseLogin");
-			const passeLoginErreur = document.querySelector(".passeLoginErreur");
-			const submitButtonLogin = document.querySelector(".submitButtonLogin");*/
 
 			if (!passeRegexConex.test(password.trim()) || password === "") {
 				
@@ -237,14 +222,28 @@ const Login = ({ lockConexion }) => {
 
 							// Redirection vers l'espace admin
 							//window.location.href = '/admin';
+							
+							//vidage des champs
+							formulaireContact.reset();
+							setEmail("")
+							setPassword("")
+							
 							navigate("/admin")
+							
+
 
 						} else if (role === 'visitor') {
 
 							authentificationErreur.style.display = "none"; 
 
+							//vidage des champs
+							formulaireContact.reset();
+							setEmail("")
+							setPassword("")
+
 							// Redirection vers l'espace visiteur
 							navigate("/visitor")
+
 
 						} /*else if (!role){
 							// s'il n y a pas de role dans le token 
@@ -281,6 +280,7 @@ const Login = ({ lockConexion }) => {
 	}
 
 	///////////////////////////////////////////
+
 	return (
 		<div className="Login formulaireNoneConnexion">
 			<div className="containerLogin">
