@@ -2,16 +2,19 @@ import React from 'react';
 import { Route, Routes } from "react-router-dom";
 
 import { GetAllArticles,GetOneArticle } from '../adminPages/blog';
+import AboutUs from './AboutUs';
+
 import Acceuil from './Acceuil';
 import Error from '../../_utils/Error';
 
 const PublicRouterAdmin = () => {
     return (
         <Routes>
-			<Route index element={<GetAllArticles />} />
+			{/*<Route index element={<GetAllArticles />} />*/}
 			<Route path="blog">
 				<Route index element={<GetAllArticles />} />
 				<Route path="articles" element={<GetAllArticles />} />
+                <Route path="about" element={<AboutUs />} />
 				<Route path="articles/:id" element={<GetOneArticle />} />
 				<Route path="*" element={<Error />} />
 			</Route>

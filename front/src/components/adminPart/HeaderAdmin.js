@@ -30,9 +30,9 @@ const HeaderAdmin = () => {
 				<div className="logo"> <span className="colorLetter">F</span> ull<span className="colorLetter">B</span> asard</div>
 				<ul className="contenaireMenu">
 				
-					<li><Link to="/admin/acceuil">Accueil</Link></li>
+					<li><Link to="/admin/blog/articles">Accueil</Link></li>
 					<li onClick={() => openSignum()}><Link >Créer un compte</Link></li>
-					<li className="boutonContact boutonConexion" onClick={() => logout()}><Link to="/acceuil">Déconexion</Link></li>
+					<li className="boutonContact boutonConexion" onClick={() => logout()}><Link to="/">Déconexion</Link></li>
 					
 				</ul>
 			</nav>

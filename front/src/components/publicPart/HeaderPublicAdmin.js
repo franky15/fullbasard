@@ -13,8 +13,8 @@ const HeaderPublicAdmin = () => {
 	const openContact = ()=>{
 
         
-        const formulaireNone = document.querySelector(".formulaireNone")
-        formulaireNone.style.display= "none"
+        /*const formulaireNone = document.querySelector(".formulaireNone")
+        formulaireNone.style.display= "none"*/
         setContactIsOpen(true)
     }
 
@@ -32,9 +32,9 @@ const HeaderPublicAdmin = () => {
 				<ul className="contenaireMenu">
 				
 					<li><Link to="/visitor/blog">Accueil</Link></li>
-					<li><Link to="/visitor/about">Qui sommes-nous</Link></li>
+					<li><Link to="/visitor/blog/about">Qui sommes-nous</Link></li>
 					<li className="boutonContact" onClick={() => openContact()}><Link >Contact</Link></li>
-                    <li className="boutonContact boutonConexion" onClick={() => logout()}><Link to="/acceuil">Déconexion</Link></li>
+                    <li className="boutonContact boutonConexion" onClick={() => logout()}><Link to="/">Déconexion</Link></li>
 
 				</ul>
 			</nav>

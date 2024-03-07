@@ -227,7 +227,7 @@ const Login = ({ lockConexion }) => {
 							formulaireContact.reset();
 							setEmail("")
 							setPassword("")
-							
+
 							navigate("/admin")
 							
 
@@ -242,7 +242,7 @@ const Login = ({ lockConexion }) => {
 							setPassword("")
 
 							// Redirection vers l'espace visiteur
-							navigate("/visitor")
+							navigate("/visitor/blog") //visitor
 
 
 						} /*else if (!role){

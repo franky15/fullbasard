@@ -1,92 +1,69 @@
-import React from "react";
+import React,{useState, useEffect} from "react";
+import { useNavigate } from 'react-router-dom';
+
+import { articleServices } from "../../_services/Article.services";
 
 const Blog = () => {
+
+	const [ articles, setArticles ] = useState([])
+
+	let navigate = useNavigate()
+
+	
+
+	//useEffect va se charger après que le contenu jsx se soit chargé
+	useEffect( () => {
+
+		//récupération de tous les articles 
+		articleServices.getArticles()
+			.then( function(res){
+
+				console.log("*** res getArticles")
+				console.log(res.data)
+
+				const response = res.data
+
+				//$$$$$$$$$$$$$$
+				setArticles(response)
+				//$$$$$$$$$$$$$$
+			})
+			.catch( function(err){
+
+				console.log( "**** articles non récupérés")
+				console.log( err)
+
+				///////////////////
+				//ajout du code de la popop d'erreur
+
+				///////////////////
+			})
+	
+
+	},[])
+
+	console.log(articles)
+	
 	return (
-		<>
+		
+		<div className="blogBloc">
 
-		<section class="blog">
-			<section class="publication">
-				<h1 class="h1articles">Articles</h1>
-				<div class="article">
-					<h2 class="titreArticle">SEO</h2>
-				</div>
+			<h1 className="h1articlesBloc">Articles</h1>
+			<section className="publicationBloc"  >
+			{	articles.map( (article, index) => 
+
+				<button className="articleBloc" key={`${article.title}-${index}`}>
+					<h2 className="titreArticleBloc">{article.title}</h2>
+				</button>
+				
+				)
+				
+
+			}
 			</section>
 
-			<section class="recherche">
-				<div class="barREcherche">
-					<button class="clear-button" onclick="clearSearch()">X</button>
-					<input type="text" class="search-input" placeholder="Recherche..."/>
-					<button class="search-button">Rechercher</button>
-					<div class="search-buttons"></div>
-				</div>
-				<section class="puce">
-					<h2 class="category-title">Catégories</h2>
-					<ul class="categories-list">
-						<li class="category-item" onclick="navigateTo('all-articles')">Tous les articles</li>
-						<li class="category-item" onclick="navigateTo('e-commerce')">E-commerce</li>
-						<li class="category-item" onclick="navigateTo('product-owner')">Product Owner</li>
-						<li class="category-item" onclick="navigateTo('front-end-developer')">Développeur Front-End</li>
-						<li class="category-item" onclick="navigateTo('back-end-developer')">Développeur Back-End</li>
-					</ul>
-				</section>
-			</section>
-		</section>
-
-
-		{/*<section class="blog">
 			
-			<section class="publication">
-				<h1 class="h1articles">Articles</h1>
-				<div class="article">
-				<h2 class="titreArticle">
-					SEO
-				</h2>
-				</div>
-			</section>
+		</div>
 
-			<section class="recherche">
-				<div class="barREcherche">
-					<button class="clear-button" onclick="clearSearch()">X</button>
-					<input type="text" class="search-input" placeholder="Recherche...">
-					<button class="search-button">Rechercher</button>
-					<div class="search-buttons">
-					</div>
-				</div>
-				<section class="puce">
-					<h2 class="category-title">Catégories</h2>
-					<ul class="categories-list">
-						<li class="category-item" onclick="navigateTo('all-articles')">Tous les articles</li>
-						<li class="category-item" onclick="navigateTo('e-commerce')">E-commerce</li>
-						<li class="category-item" onclick="navigateTo('product-owner')">Product Owner</li>
-						<li class="category-item" onclick="navigateTo('front-end-developer')">Développeur Front-End</li>
-						<li class="category-item" onclick="navigateTo('back-end-developer')">Développeur Back-End</li>
-					</ul>
-				</section>
-			</section>
-			
-		</section>*/}
-
-{    /*
-    <script>
-        function repeatDiv() {
-            // Sélectionne la div existante
-            var originalDiv = document.querySelector('.article');
-
-            // Crée une copie de la div
-            var clonedDiv = originalDiv.cloneNode(true);
-
-            // Ajoute la copie à la suite de l'original
-            originalDiv.parentNode.appendChild(clonedDiv);
-        }
-
-        // Appelle la fonction deux fois pour répéter la div
-        repeatDiv();
-        repeatDiv();
-    </script>
-    */}
-
-
-		</>
 	);
 };
 

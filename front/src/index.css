@@ -515,49 +515,52 @@ footer {
   border: solid red;
   display: flex;
   justify-content: space-between;
-  height: 700px;
   margin-top: 140px;
   /*margin-right: 500px;*/
 }
 
+.containerComponentBlog {
+  width: 100%;
+}
+
+/*
 .publication {
-  border: solid rgb(34, 16, 16);
-  display: flex;
-  height: 697px;
-  margin-top: 0px;
-  width: 75%;
-}
+    border: solid rgb(34, 16, 16);
+    display: flex;
+    height: 697px;
+    margin-top: 0px;
+    width: 75%;
+    }
 
-.article {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: solid 1px rgb(213, 213, 213);
-  height: 400px;
-  width: 30%;
-  margin-top: 170px;
-  margin-left: 30px;
-  color: #2DBAEF;
-  border-radius: 10px;
-}
 
+
+.article{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px rgb(213, 213, 213);
+    height: 400px;
+    width: 30%;
+    margin-top: 170px;
+    margin-left: 30px;
+    color: #2DBAEF;
+    border-radius: 10px;
+}*/
 .recherche {
+  width: 25%;
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
   border: solid rgb(113, 129, 234);
-  display: flex;
-  width: 25%;
 }
 
 .barREcherche {
+  width: 90%;
   display: flex;
   top: 0px;
   height: 40px;
   margin-top: 5%;
   border: solid 2px hsl(0, 9%, 60%);
-  width: 90%;
 }
 
 .search-input {
@@ -567,12 +570,11 @@ footer {
 }
 
 .puce {
-  display: flex;
+  width: 90%;
+  height: 200px;
   display: flex;
   flex-direction: column;
-  width: 300px;
-  height: 200px;
-  margin-left: -160px;
+  align-items: start;
   border: solid rgb(115, 115, 176);
 }
 
@@ -586,11 +588,54 @@ footer {
   color: #2DBAEF;
   font-weight: bold;
   list-style-type: none;
+  padding-left: 0px;
 }
 
-.h1articles {
+/*
+.h1articles{
+    font-size: xx-large;
+    //margin-left: 30px;
+}*/
+/******** style du composant Blog*/
+.blogBloc {
+  border: solid red;
+}
+.blogBloc .h1articlesBloc {
   font-size: xx-large;
   margin-left: 30px;
+  border: solid red;
+}
+.blogBloc .publicationBloc {
+  width: 97%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  margin-top: 50px;
+  flex-wrap: wrap;
+  border: solid yellow;
+}
+.blogBloc .publicationBloc .articleBloc {
+  height: 400px;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid 1px rgb(213, 213, 213);
+  margin-bottom: 80px;
+  color: #2DBAEF;
+  border-radius: 10px;
+  background-color: white;
+  transition: box-shadow 0.5s ease, color 0.9s ease, background-color 0.5s ease, border 0.7s ease;
+  transition: transform 0.4s ease-in-out;
+}
+.blogBloc .publicationBloc .articleBloc:hover {
+  background-color: #2DBAEF;
+  box-shadow: 4px 0px 14px 2px rgba(0, 0, 0, 0.3);
+  transform: scale(1.1);
+  color: white;
+  border: none;
+  cursor: pointer;
 }
 
 /*formulaire connexion*/
