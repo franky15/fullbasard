@@ -2,6 +2,8 @@
 import React,{useState} from "react";
 import { Link } from "react-router-dom"
 
+import { accountServices } from "../../_services/Account.services";
+
 import { Contact } from "../../pages/publicPages";
 import {AddAcount} from "../../pages/publicPages";
 
@@ -20,7 +22,8 @@ const HeaderAdmin = () => {
 	//gestion de  la connexion
 	const logout = ()=>{
 
-		
+		//appel de la fonction deconnexion pour supprimer le token du localstorage
+		accountServices.logout()
 	}
 	
 

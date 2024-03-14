@@ -3,6 +3,8 @@ import { Link } from "react-router-dom"
 
 
 import {Contact }from "../../pages/publicPages";
+import { accountServices } from "../../_services/Account.services";
+
 
 const HeaderPublicAdmin = () => {
 
@@ -22,7 +24,8 @@ const HeaderPublicAdmin = () => {
     //gestion de  la connexion
 	const logout = ()=>{
 
-		
+		//appel de la fonction deconnexion pour supprimer le token du localstorage
+		accountServices.logout()
 	}
 
     return (

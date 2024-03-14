@@ -1,105 +1,151 @@
+
+
+
+.popopNotification{
+
+    width: 20%;
+    height: 45px;
+    display: flex;
+    margin-left: 30px;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: green;
+    border-radius: 5px;
+    border: solid 1px black;
+    font-weight: bold;
+    font-size: 18px; 
+    box-shadow: 4px 0px 14px 2px rgba(0,0,0,0.44);
+    position: absolute;
+    top: -15px;
+    right: 20px;
+}
+
 .blog {
-    border: solid red;
+     
     display: flex;
     justify-content: space-between;
-    //height: 700px;
-    margin-top: 140px;
-    /*margin-right: 500px;*/
-    }
-     
+    border-top: solid 1px gray;
+    
+   // border: solid blue;
+
     .containerComponentBlog{
 
         width: 100%;
     }
-    /*
-    .publication {
-        border: solid rgb(34, 16, 16);
-        display: flex;
-        height: 697px;
-        margin-top: 0px;
-        width: 75%;
-        }
 
-    
-      
-    .article{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border: solid 1px rgb(213, 213, 213);
-        height: 400px;
-        width: 30%;
-        margin-top: 170px;
-        margin-left: 30px;
-        color: #2DBAEF;
-        border-radius: 10px;
-    }*/
-    
-    
-    
     .recherche {
 
         width: 25%;
         display: flex;
         align-items: center;
         flex-direction: column;
-        border: solid rgb(113, 129, 234);
+        border-left: solid 1px gray;
+       // border: solid rgb(113, 129, 234);
       
         
     }
     
-       
+    .containerIcon{
+
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        //border: solid rgb(113, 129, 234);
+
+        .iconAdmItem{
+            color: #2DBAEF;
+            font-size: 30px;
+            cursor: pointer;
+        }
+    }
     
     .barREcherche{
 
         width: 90%;
+        height: 50px;
         display: flex;
-        top: 0px;
-        height: 40px;
-        margin-top: 5%;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 5px;
+
+      
         border: solid 2px hsl(0, 9%, 60%);
+
+        .loupBoutton{
+
+            width: 10%;
+            background-color: white;
+            border: none;
+            i{
+                color: #2DBAEF;
+                font-size: 30px;
+            }
+        }
+        .searchBar{
+            width: 60%;
+            height: 40px;
+            //border: solid red;
+          
+        }
+
+        .search-button{
+            width: 25%;
+            height: 40px;
+            background-color: white;
+            border: none;
+            border-radius: 5px;
+            
+
+            i{
+               
+                color: #2DBAEF;
+                font-size: 30px;
+                font-weight: bold;
+                cursor: pointer;
+            }
+        }
        
     }
     
-    .search-input{
-        height: 40px;
-        margin-top: 0px;
-        /*border: solid 1px #888;*/
-    }
     
-    .puce{
+    //style de la section des catégories
+    .categories{
     
         width: 90%;
-        height: 200px;
         display: flex;
         flex-direction: column;
         align-items: start;
-       
-       
-        border: solid rgb(115, 115, 176); 
-    }
-    
-    .category-title {
-        margin-right: 110px;
-    
-    }
-    
-    .categories-list{
-        display: flex;
-        flex-direction: column;
-        color: #2DBAEF;
-        font-weight: bold;
-        list-style-type: none;  
-        padding-left: 0px;
-    }
-    
-    /*
-    .h1articles{
-        font-size: xx-large;
-        //margin-left: 30px;
-    }*/
+       // border: solid yellow; 
 
+        
+        .categories-list{
 
+            display: flex;
+            flex-direction: column;
+            color: #2DBAEF;
+            font-weight: bold;
+            list-style-type: none;  
+            padding-left: 0px;
+
+            .category-item{
+                margin-top: 10px;
+                cursor: pointer;
+                transition: color 0.5s ease;
+            }
+
+        }
+    }
+    
+}
+     
+    
+    
+   
+    
+    
     /******** style du composant Blog*/
 
     .blogBloc{
@@ -108,12 +154,13 @@
         // display: flex;
         // justify-content: space-between;
         //border-top: solid 1px;
-        border: solid red;
+       // border: solid red;
+
         
         .h1articlesBloc{
             font-size: xx-large;
             margin-left: 30px;
-            border: solid red;
+            //border: solid red;
         }
 
         .publicationBloc {
@@ -128,7 +175,7 @@
             flex-wrap: wrap;
 
             //////////////////////
-            border: solid yellow;
+           // border: solid yellow;
     
             
             .articleBloc{
@@ -165,4 +212,25 @@
         }
 
     }
+
+    .containerGetOneArticle{
+
+        width: 50%;
+        margin: auto;
+        text-align: center;
+        border-radius: 5px;
+        border: solid 1px black;
+
+    }
+
+    .containerDeleteUpdate{
+
+        width: 50%;
+        margin: auto;
+       
+    }
+    
+
+    /******** style de la partie supérieure de GetOneArticle*/
+
     

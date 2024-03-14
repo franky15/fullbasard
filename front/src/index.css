@@ -3,7 +3,6 @@
   height: 200px;
   background-color: white;
   overflow: hidden;
-  border: solid red;
   display: flex;
   justify-content: space-between;
   font-weight: bold;
@@ -172,21 +171,18 @@ textarea {
 /* conteneur affichage d'images*/
 /*parent*/
 main {
-  border: solid blue;
   height: 1600px;
   background-color: rgb(234, 234, 234);
 }
 
 /*enfant1*/
 .containervoisPlus {
-  border: solid rgb(60, 129, 46);
   height: 493px;
   display: flex;
 }
 
 /*enfant2*/
 .voisPlus {
-  border: solid rgb(142, 19, 19);
   height: 190px;
   width: 70%;
   margin: auto;
@@ -423,7 +419,6 @@ footer {
   display: flex;
   justify-content: space-between;
   margin: auto;
-  border: solid rgb(179, 44, 157);
   height: 170px;
   background-color: #2DBAEF;
 }
@@ -504,85 +499,100 @@ footer {
 .footer-section {
   justify-content: space-between;
   display: flex;
-  border: solid rgb(45, 172, 107);
   width: 350px;
   height: 165px;
   margin-left: 80px;
   margin-right: 80px;
 }
 
+.popopNotification {
+  width: 20%;
+  height: 45px;
+  display: flex;
+  margin-left: 30px;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: green;
+  border-radius: 5px;
+  border: solid 1px black;
+  font-weight: bold;
+  font-size: 18px;
+  box-shadow: 4px 0px 14px 2px rgba(0, 0, 0, 0.44);
+  position: absolute;
+  top: -15px;
+  right: 20px;
+}
+
 .blog {
-  border: solid red;
   display: flex;
   justify-content: space-between;
-  margin-top: 140px;
-  /*margin-right: 500px;*/
+  border-top: solid 1px gray;
 }
-
-.containerComponentBlog {
+.blog .containerComponentBlog {
   width: 100%;
 }
-
-/*
-.publication {
-    border: solid rgb(34, 16, 16);
-    display: flex;
-    height: 697px;
-    margin-top: 0px;
-    width: 75%;
-    }
-
-
-
-.article{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: solid 1px rgb(213, 213, 213);
-    height: 400px;
-    width: 30%;
-    margin-top: 170px;
-    margin-left: 30px;
-    color: #2DBAEF;
-    border-radius: 10px;
-}*/
-.recherche {
+.blog .recherche {
   width: 25%;
   display: flex;
   align-items: center;
   flex-direction: column;
-  border: solid rgb(113, 129, 234);
+  border-left: solid 1px gray;
 }
-
-.barREcherche {
+.blog .containerIcon {
   width: 90%;
   display: flex;
-  top: 0px;
-  height: 40px;
-  margin-top: 5%;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.blog .containerIcon .iconAdmItem {
+  color: #2DBAEF;
+  font-size: 30px;
+  cursor: pointer;
+}
+.blog .barREcherche {
+  width: 90%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
   border: solid 2px hsl(0, 9%, 60%);
 }
-
-.search-input {
-  height: 40px;
-  margin-top: 0px;
-  /*border: solid 1px #888;*/
+.blog .barREcherche .loupBoutton {
+  width: 10%;
+  background-color: white;
+  border: none;
 }
-
-.puce {
+.blog .barREcherche .loupBoutton i {
+  color: #2DBAEF;
+  font-size: 30px;
+}
+.blog .barREcherche .searchBar {
+  width: 60%;
+  height: 40px;
+}
+.blog .barREcherche .search-button {
+  width: 25%;
+  height: 40px;
+  background-color: white;
+  border: none;
+  border-radius: 5px;
+}
+.blog .barREcherche .search-button i {
+  color: #2DBAEF;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.blog .categories {
   width: 90%;
-  height: 200px;
   display: flex;
   flex-direction: column;
   align-items: start;
-  border: solid rgb(115, 115, 176);
 }
-
-.category-title {
-  margin-right: 110px;
-}
-
-.categories-list {
+.blog .categories .categories-list {
   display: flex;
   flex-direction: column;
   color: #2DBAEF;
@@ -590,20 +600,16 @@ footer {
   list-style-type: none;
   padding-left: 0px;
 }
-
-/*
-.h1articles{
-    font-size: xx-large;
-    //margin-left: 30px;
-}*/
-/******** style du composant Blog*/
-.blogBloc {
-  border: solid red;
+.blog .categories .categories-list .category-item {
+  margin-top: 10px;
+  cursor: pointer;
+  transition: color 0.5s ease;
 }
+
+/******** style du composant Blog*/
 .blogBloc .h1articlesBloc {
   font-size: xx-large;
   margin-left: 30px;
-  border: solid red;
 }
 .blogBloc .publicationBloc {
   width: 97%;
@@ -613,7 +619,6 @@ footer {
   margin-bottom: 30px;
   margin-top: 50px;
   flex-wrap: wrap;
-  border: solid yellow;
 }
 .blogBloc .publicationBloc .articleBloc {
   height: 400px;
@@ -638,6 +643,20 @@ footer {
   cursor: pointer;
 }
 
+.containerGetOneArticle {
+  width: 50%;
+  margin: auto;
+  text-align: center;
+  border-radius: 5px;
+  border: solid 1px black;
+}
+
+.containerDeleteUpdate {
+  width: 50%;
+  margin: auto;
+}
+
+/******** style de la partie supérieure de GetOneArticle*/
 /*formulaire connexion*/
 .formulaireNoneConnexion {
   /*display: none;*/
@@ -863,6 +882,150 @@ textarea {
   cursor: pointer;
   border: none;
   border-radius: 10px;
+}
+
+.AddOnArticle {
+  width: 100%;
+  padding-bottom: 50px;
+  padding-top: 50px;
+}
+.AddOnArticle .containerCreateArticle {
+  width: 60%;
+  margin: auto;
+  padding-left: 50px;
+  padding-right: 50px;
+  border: solid 1px gray;
+  border-radius: 10px;
+}
+.AddOnArticle .titlePageArticle {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 32px;
+}
+.AddOnArticle .articleForm label {
+  color: black;
+  font-weight: bold;
+  /*input, textarea:focus{
+
+      opacity: 1;
+
+  }*/
+  /* select:focus{
+
+       opacity: 1;
+
+   }*/
+}
+.AddOnArticle .articleForm label input, .AddOnArticle .articleForm label textarea {
+  width: 100%;
+  /* opacity: 0.5;
+   transition: opacity 0.5s ease-in-out;*/
+  border: solid 1px gray;
+}
+.AddOnArticle .articleForm label select {
+  width: 100%;
+  /* opacity: 0.5;
+   transition: opacity 0.5s ease-in-out;*/
+  border: solid 1px gray;
+}
+.AddOnArticle .articleForm .labelCategory {
+  display: flex;
+  flex-direction: column;
+}
+.AddOnArticle .articleForm .labelCategory .selectCreateArticle {
+  width: 25%;
+  height: 50px;
+  border-radius: 5px;
+  border: solid 1px gray;
+}
+.AddOnArticle .articleForm .labelDate {
+  display: flex;
+  flex-direction: column;
+}
+.AddOnArticle .articleForm .labelDate .date {
+  width: 20%;
+  border: solid 1px gray;
+}
+.AddOnArticle .articleForm .containerBtnValidArticle {
+  width: 40%;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+.AddOnArticle .articleForm .containerBtnValidArticle .btnArticle {
+  width: 40%;
+  height: 40px;
+  background-color: green;
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+}
+.AddOnArticle .articleForm .containerBtnValidArticle .btnCancelArticle {
+  background-color: rgb(173, 172, 172);
+}
+
+.containerDelete {
+  width: 50%;
+  height: 200px;
+  position: absolute;
+  top: 300px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 4px 0px 14px 2px rgba(0, 0, 0, 0.44);
+}
+
+.DeleteOneArticle {
+  width: 100%;
+  height: 100%;
+}
+.DeleteOneArticle .confirmDeleteTitle {
+  text-align: center;
+  font-weight: bold;
+  font-size: 23px;
+}
+.DeleteOneArticle .cotainerConfirmDeleteBtn {
+  width: 50%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 70px;
+}
+.DeleteOneArticle .cotainerConfirmDeleteBtn .confirmDeleteButton {
+  width: 40%;
+  height: 30px;
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.DeleteOneArticle .cotainerConfirmDeleteBtn .cancelDeleteBtn {
+  background-color: gray;
+}
+
+/*.UpdateOneArticle{
+
+    width: 100%;
+    border: solid orange;
+
+
+
+}*/
+.AdminLayout {
+  width: 100%;
+  position: absolute;
+  z-index: 0;
 }
 
 /*# sourceMappingURL=index.css.map */

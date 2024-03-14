@@ -1,0 +1,115 @@
+.AddOnArticle{
+    width: 100%;
+    padding-bottom: 50px;
+    padding-top: 50px;
+    //position: relative;
+    //z-index: 1;
+    //border: solid blue;
+
+    .containerCreateArticle{
+
+        width: 60%;
+        margin: auto;
+        
+        padding-left: 50px;
+        padding-right: 50px;
+        border: solid 1px gray;
+        border-radius: 10px;
+    }
+
+    .titlePageArticle{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        font-size: 32px;
+       // border: solid green;
+    }
+    .articleForm{
+
+       
+       // border: solid yellow;
+
+        label{
+            color: black;
+            font-weight: bold;
+
+            input, textarea{
+                width: 100%;
+               /* opacity: 0.5;
+                transition: opacity 0.5s ease-in-out;*/
+                border: solid 1px gray;
+            }
+            /*input, textarea:focus{
+
+                opacity: 1;
+                
+            }*/
+            select{
+                width: 100%;
+               /* opacity: 0.5;
+                transition: opacity 0.5s ease-in-out;*/
+                border: solid 1px gray;
+            }
+           /* select:focus{
+
+                opacity: 1;
+               
+            }*/
+
+           
+            
+            
+        }
+        .labelCategory{
+
+            display: flex;
+            flex-direction: column;
+
+            .selectCreateArticle{
+                width: 25%;
+                height: 50px;
+                border-radius: 5px;
+                border: solid 1px gray;
+            }
+           
+        }
+        .labelDate{
+                
+            display: flex;
+            flex-direction: column;
+            .date{
+                width: 20%;
+                border: solid 1px gray;
+            }
+        }
+
+        .containerBtnValidArticle{
+            width: 40%;
+            margin: auto;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 20px;
+            margin-bottom: 50px;
+           // border: solid red;
+
+            .btnArticle{
+                width: 40%;
+                height: 40px;
+                background-color: green;
+                color: white;
+                border-radius: 5px;
+                font-weight: bold;
+                cursor: pointer;
+                border: none;
+            }
+            .btnCancelArticle{
+   
+                background-color: rgb(173, 172, 172);
+       
+            }
+        }
+    }
+}

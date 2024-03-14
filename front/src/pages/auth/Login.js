@@ -216,24 +216,29 @@ const Login = ({ lockConexion }) => {
 		
 						// Récupérer le rôle de l'utilisateur depuis le token
 						const role = decodedToken.role;
-		
-						// Rediriger l'utilisateur en fonction de son rôle
-						if (role === 'admin') {
 
-							// Redirection vers l'espace admin
-							//window.location.href = '/admin';
-							
+						// Récupération du temps d'expiration du token il est en secondes
+						const expireToken = decodedToken.exp;
+		
+						//Récupération du temps actuel en secondes
+						const timeInSecond = Math.floor(Date.now() / 1000) ;
+
+						// Rediriger l'utilisateur en fonction de son rôle
+						if (role === 'admin'  && expireToken  >  timeInSecond ) {
+
+				
 							//vidage des champs
 							formulaireContact.reset();
 							setEmail("")
 							setPassword("")
 
-							navigate("/admin")
+							// Redirection vers l'espace admin
+							navigate("/admin/blog/articles")
 							
 
 
-						} else if (role === 'visitor') {
-
+						} else if (role === 'visitor' && expireToken  >  timeInSecond  ) {
+							
 							authentificationErreur.style.display = "none"; 
 
 							//vidage des champs
@@ -245,14 +250,16 @@ const Login = ({ lockConexion }) => {
 							navigate("/visitor/blog") //visitor
 
 
-						} /*else if (!role){
-							// s'il n y a pas de role dans le token 
-							console.log("****** aucun role dans le token")
+						} else {
+
+							// s'il n y a pas de role dans le token  ou que le token est expiré
+							console.log("****** aucun role dans le token ou token expiré")
 							//on supprime le token du localstorage
 							accountServices.logout()
+							navigate("/")
 
 							
-						}*/
+						}
 						} catch (error) {
 							console.error('Erreur lors du décodage du token :', error);
 							
