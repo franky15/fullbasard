@@ -82,9 +82,23 @@ const GetAllArticles = () => {
 			[e.target.name]: e.target.value
 		})
 
+		//////////////////////////////////////////////////
+		
+		//gestion du champ de recherche quand il est vide
+		if( e.target.value === "" && (dataArticlesContext && dataArticlesContext.length > 0) ){
+
+			console.log("*** la barre de recherche est vide")
+
+			//mise à jour state de la recherche de l'article
+			setArticlesList(dataArticlesContext)
+		}
+		//////////////////////////////////////////////////
 
 	}
 	
+	console.log("**** articlesList")
+	console.log(articlesList)
+
 	console.log("**** inputSearchBarArticles")
 	console.log(inputSearchBarArticles.keyWordSearch)
 
@@ -121,7 +135,7 @@ const GetAllArticles = () => {
 		//fonction du filtrage des articles en fonction de la catégorie ou du mot clé entré dans la barre de recherche
 		const filterArticles = () => {
 
-			console.log("**** ma fonction de filtrage")
+			console.log("**** ma fonction de filtrage") 
 
 			//gestion de la recherche d'articles
 			if( ( inputSearchBarArticles.keyWordSearch !== "Date de publication,Auteur..." && inputSearchBarArticles.keyWordSearch !== "") && (dataArticlesContext && dataArticlesContext.length > 0) ){  
@@ -150,10 +164,6 @@ const GetAllArticles = () => {
 
 				}
 				//searchArticleNavigate()
-
-
-
-
 
 			}else if( (dataArticlesContext && dataArticlesContext.length > 0) && (inputSearchBarArticles.keyWordSearch === "Date de publication,Auteur..." || inputSearchBarArticles.keyWordSearch === "") ){
 			

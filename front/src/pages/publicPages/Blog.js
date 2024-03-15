@@ -80,7 +80,9 @@ console.log(searchArticleListContext)
 
 			//filtrage des articles en fonction du mot clé de recherche
 			//const dataArticlesContextFilter = dataArticlesContext.filter( article => article.author.toLowerCase().includes(inputSearchBarArticles.keyWordSearch.toLowerCase()) || article.date.toString().split("T")[0].includes(inputSearchBarArticles.keyWordSearch.toString().toLowerCase()))
-			setArticles(dataArticlesContext)
+			//setArticles(dataArticlesContext)
+
+			setArticles(articlesList)
 
 			
 			//fonction pour rediriger vers la page de tous  les articles en fonction du role 
@@ -112,13 +114,13 @@ console.log(searchArticleListContext)
 
 		}
 
-		if((articlesList && articlesList.length > 0 ) ){
+		/*if((articlesList && articlesList.length > 0 ) ){
 
 			//mise à jour du state des articles
 			setArticles(articlesList)
 
 			
-		}
+		}*/
 
 
 	},[articlesList, currentURL,dataArticlesContext,searchArticleListContext,navigate])
@@ -171,14 +173,22 @@ console.log(searchArticleListContext)
 
 				{	( isOpenArticles && articles && articles.length > 0) && articles.map( (article, index) => 
 
-					<button className="articleBloc" key={`${article.title}-${index}`} onClick={ () => articleFunction(article.id) }>
-						<h2 className="titreArticleBloc">{article.title}</h2>
+					<div className="containerArticle" key={`${article.title}-${index}`}   style={{ backgroundImage: `url('../../images/newspaper.svg')` }} >
+					<button className="articleBloc"  onClick={ () => articleFunction(article.id) }>
+						<h2 className="titreArticleBloc">Titre: {article.title}</h2>
+						<p className="contentArticleBloc">Auteur: {article.author}</p>
+						<p className="contentArticleBloc">Date de publication :{article.date.toString().split("T")[0]}</p>
+
 					</button>
+					</div>
 					
 					)
 					
+					
 
 				}
+
+
 
 				{
 					isOpenGetOneArticle && // (articles && articles.length > 0) &&

@@ -1,11 +1,22 @@
 import React,{useState, useEffect} from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import { articleServices } from "../../../_services/Article.services";
 import { useContextPopop } from "../../../_utils/contexts/ContextManagePopop";
 import { useContextDatas } from "../../../_utils/contexts/ContextDatas"; 
 
 const UpdateOneArticle = ({closeEditArticle, dataFromChildSet}) => {
+
+
+	/*attention la donnée arrive de façon asynchrone donc le composant doit être rechargé pour afficher la donnée
+		il faut donc conditionner l'utilisation des données du context au niveau de son existance de données
+	*/
+	let { dataArticlesContext, searchArticleListContext, setSearchArticleListContext } = useContextDatas();
+
+
+	let { id } = useParams();
+
+	const currentURL = window.location.href;
 
 	//accès aux valeurs du context pour ouvrir et fermer la popop de notification d'articles
 	const { isOpenPopopArticle, openPopopArticle,
@@ -14,14 +25,21 @@ const UpdateOneArticle = ({closeEditArticle, dataFromChildSet}) => {
 		console.log("**** isOpenPopopArticle")
 		console.log(isOpenPopopArticle)
 
-	const [ article, setArticle ] = useState({})
+	const [ article, setArticle ] = useState({
+
+		title: "Entrer le titre de l'article ",
+		content: "Entrer le contenu de l'article",
+		picture: "Insérer une image",
+		author: "Entrer le nom de l'auteur",
+		category: "Choisir une catégorie"
+	})
 
 
 	//useEffect va se charger après que le contenu jsx se soit chargé
 	useEffect( () => {
 
 		//récupération d'un article 
-		articleServices.getArticle()
+		articleServices.getArticle(id)
 			.then( function(res){
 
 				console.log("*** res getArticle")
@@ -43,9 +61,24 @@ const UpdateOneArticle = ({closeEditArticle, dataFromChildSet}) => {
 
 				///////////////////
 			})
+
+			//fonction de désactivation du champ date
+
+			const  dateDisabled = () => {
+
+				//récupération du champ date
+				const date = document.querySelector(".labelDate")
+				
+				//désactivation du champ date
+				date.disabled = true
+				date.style.display = "none"
+
+			}
+			dateDisabled()
+			
 	
 
-	},[])
+	},[id])
 
 	const articleFunction = (e) => {
 
@@ -65,7 +98,7 @@ const UpdateOneArticle = ({closeEditArticle, dataFromChildSet}) => {
 		console.log("**** article")
 		console.log(article)
 
-        articleServices.addArticle( article)
+        articleServices.updateArticle( article)
             .then( (res) => {
 
                 console.log("**** res addArticle")
@@ -84,15 +117,19 @@ const UpdateOneArticle = ({closeEditArticle, dataFromChildSet}) => {
 				reinitialiserArticle();
 				
 				
-				//message de notification de l'ajout d'un article
-				const message = "Votre article a bien été modifié avec succès"
-				//mise à jour du state du message de notification dans le composant parent GetAllArticles
-				dataFromChildSet(message)
+				
 
-				//fermeture du composant EditOneArticle
-				closeEditArticle()
+				
             })
             .catch((error) => console.log(error))
+
+			//message de notification de l'ajout d'un article
+			const message = "Votre article a bien été modifié avec succès"
+			//mise à jour du state du message de notification dans le composant parent GetAllArticles
+			dataFromChildSet(message)
+			
+			//fermeture du composant EditOneArticle
+			closeEditArticle()
 		
     }
 
@@ -116,6 +153,8 @@ const UpdateOneArticle = ({closeEditArticle, dataFromChildSet}) => {
 		closeEditArticle()
 	
 	}
+
+	
 
 	return (
 		<div className="UpdateOneArticle AddOnArticle">
@@ -165,7 +204,7 @@ const UpdateOneArticle = ({closeEditArticle, dataFromChildSet}) => {
 							<select value={article.category}  className="selectCreateArticle"  onChange={articleFunction}>
 								
 								{
-									<option value="">Sélectionnez une catégorie</option>
+									<option value="">{article.category} </option>
 									
 								}
 							
@@ -174,7 +213,7 @@ const UpdateOneArticle = ({closeEditArticle, dataFromChildSet}) => {
 
 						<label className="labelDate">
 							Date  de publication *:
-							<input type="datetime-local"  name="date" className="date" onChange={articleFunction} />
+							<input type="date"  name="date" className="date" value={article.date} onChange={articleFunction} />
 						</label>
 
 							<div className='containerBtnValidArticle'>

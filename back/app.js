@@ -26,7 +26,7 @@ app.use(express.urlencoded({ extended: true })); //l'encodage des url car on a p
 
 //mise en place des routes
 app.use("/users", usersRoutes);
-app.use("/articles", articlesRoutes);
+app.use("/articles", articlesRoutes); 
 
 
 module.exports = app; 

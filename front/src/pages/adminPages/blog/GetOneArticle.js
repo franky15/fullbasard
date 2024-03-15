@@ -52,7 +52,7 @@ const GetOneArticle = ({setInputSearchBarArticlesFunction, closeGetOneArticle, o
 	//const [ inputSerchBar, setInputSerchBar ] = useState("Date de publication,Auteur...")
 
 	//gestion du state de la liste des articles
-	const [ articlesList, setArticlesList ] = useState([])
+	//const [ articlesList, setArticlesList ] = useState([])
 
 	//state de gestion du mot clé entré dans la barre de recherche
 	const [ inputSearchBarArticles, setInputSearchBarArticles ] = useState({
@@ -261,7 +261,12 @@ const GetOneArticle = ({setInputSearchBarArticlesFunction, closeGetOneArticle, o
 				console.log("**** listArticles")
 				console.log(listArticles)
 
-				setSearchArticleListContext(listArticles)
+				setSearchArticleListContext({
+					...searchArticleListContext,
+					list: listArticles,
+					keyWordSearch: inputSearchBarArticles.keyWordSearch
+				})
+				//setSearchArticleListContext(listArticles)
 
 				navigate(`/visitor/blog/articles`)
 
@@ -287,7 +292,10 @@ const GetOneArticle = ({setInputSearchBarArticlesFunction, closeGetOneArticle, o
 					})
 
 					navigate(`/admin/blog/articles`)
+			
 			}
+
+
 		}
 		articleFunction()
 		

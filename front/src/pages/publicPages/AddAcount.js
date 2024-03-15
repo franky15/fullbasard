@@ -465,10 +465,12 @@ const AddAcount = ({lockSignum}) => {
 		//formulaireContact.reset();
 
 		const userObject = {
+
 			prenom: prenom,
-      nom: nom,
-      email: email,
-      password: passwordUser
+			nom: nom,
+			email: email,
+			password: passwordUser
+
 		};
 
 		console.log("***userObject final");
@@ -540,7 +542,7 @@ const AddAcount = ({lockSignum}) => {
           <div className="formulaireContenerFinalCreer">
               <form className="formulaireCompteCreer">
                   <div className="containerbuttonCreer">
-                    <button className="closeButtonCreer" onClick={()=> lockSignum}>X</button>
+                    <button className="closeButtonCreer" onClick={ lockSignum}>X</button>
                   </div>
                  
                   <h2>Créer un compte</h2>

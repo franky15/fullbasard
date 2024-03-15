@@ -1,4 +1,9 @@
 @charset "UTF-8";
+.HeaderPublic {
+  margin: 0;
+  font-family: "Kanit", sans-serif;
+}
+
 .navbar {
   height: 200px;
   background-color: white;
@@ -54,7 +59,6 @@
 }
 
 .formulaireNoneCreer {
-  /*display: none;*/
   width: 85%;
   position: absolute;
   top: 130px;
@@ -162,12 +166,10 @@ textarea {
   display: none;
 }
 
-/*body {
-    margin: 0;
-    font-family: Arial, sans-serif;
+body {
+  margin: 0;
+}
 
-
-}*/
 /* conteneur affichage d'images*/
 /*parent*/
 main {
@@ -210,7 +212,6 @@ main {
 .block1 {
   display: flex;
   flex-direction: column;
-  border: solid rgb(3, 3, 3);
   width: 300px;
   height: 185px;
   font-size: 20px;
@@ -220,7 +221,6 @@ main {
 .block2 {
   display: flex;
   flex-direction: column;
-  border: solid rgb(3, 3, 3);
   width: 300px;
   height: 185px;
   font-size: 20px;
@@ -236,7 +236,6 @@ main {
 }
 
 .section-info {
-  border: solid rgb(0, 0, 0);
   height: 1000px;
   background-color: white;
 }
@@ -415,96 +414,136 @@ input[type=submit]:hover {
 }
 
 /* Footer */
-footer {
-  display: flex;
-  justify-content: space-between;
-  margin: auto;
-  height: 170px;
+.Footer {
+  position: relative;
+  top: 60px;
+  width: 100%;
+  height: 200px;
   background-color: #2DBAEF;
+  padding: 20px;
 }
 
+footer {
+  width: 65%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  background-color: #2DBAEF;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+footer .footer-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 350px;
+  height: 165px;
+}
+footer .footer-section .icon {
+  width: 15%;
+}
+footer .footer-section .icon i {
+  font-size: 50px;
+}
+footer .footer-section .memeAdresse {
+  width: 85%;
+  font-size: 20px;
+  font-weight: bold;
+}
+footer .footer-section .memeTout {
+  width: 85%;
+  font-size: 20px;
+  font-weight: bold;
+  position: relative;
+  top: -50px;
+}
+
+/*
 .entreprise {
-  height: 300px;
+    height: 300px;
 }
 
 .Partons {
-  background-color: rgb(234, 234, 234);
-  height: 300px;
-  display: flex;
-  flex-direction: column;
+    background-color: rgb(234, 234, 234);
+    height: 300px;
+    display: flex;
+    flex-direction: column;
 }
 
 .pCenterViv {
-  display: flex;
-  flex-direction: column;
-  margin-right: 400px;
+    display: flex;
+    flex-direction: column;
+    margin-right: 400px;
 }
 
 .notreVision {
-  height: 300px;
-  display: flex;
-  justify-content: center;
+    height: 300px;
+    display: flex;
+    justify-content: center;
 }
 
 .pCenterGris {
-  color: rgb(146, 141, 141);
-  font-size: 30px;
-  font-weight: bold;
-  margin-top: 10px;
+    color: rgb(146, 141, 141);
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 10px;
 }
 
 .conteneur-image {
-  border: solid rgb(125, 32, 161);
-  display: flex;
-  margin-right: 200px;
-  width: 200px;
-  height: 200px;
-  margin-top: 60px;
+    border: solid rgb(125, 32, 161);
+    display: flex;
+    margin-right: 200px;
+    width: 200px;
+    height: 200px;
+    margin-top: 60px;
 }
 
 .secVide {
-  background-color: white;
-  border: solid 1px rgb(0, 0, 0);
-  height: 93px;
-  margin-top: 0px;
+    background-color: white;
+    border: solid 1px rgb(0, 0, 0);
+    height: 93px;
+    margin-top: 0px;
 }
 
 .taille {
-  display: flex;
-  justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 }
 
 .memeAdresse {
-  font-size: 20px;
-  font: bold;
-  align-items: center;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    font: bold;
+    align-items: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .memeTout {
-  display: flex;
-  font-size: 20px;
-  font: bold;
-  align-items: center;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    display: flex;
+    font-size: 20px;
+    font: bold;
+    align-items: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .icon {
-  border: solid 1px rgb(119, 17, 17);
-  height: 70px;
-  width: 70px;
-  margin-top: 50px;
+    border: solid 1px rgb(119, 17, 17);
+    height: 70px;
+    width: 70px;
+    margin-top: 50px;
 }
 
 .footer-section {
-  justify-content: space-between;
-  display: flex;
-  width: 350px;
-  height: 165px;
-  margin-left: 80px;
-  margin-right: 80px;
-}
+    justify-content: space-between;
+    display: flex;
 
+    width: 350px;
+    height: 165px;
+    margin-left: 80px;
+    margin-right: 80px;
+   // border: solid rgb(45, 172, 107);
+}
+*/
 .popopNotification {
   width: 20%;
   height: 45px;
@@ -514,7 +553,7 @@ footer {
   align-items: center;
   color: white;
   background-color: green;
-  border-radius: 5px;
+  border-radius: 10px;
   border: solid 1px black;
   font-weight: bold;
   font-size: 18px;
@@ -557,8 +596,8 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: 5px;
-  border: solid 2px hsl(0, 9%, 60%);
+  border-radius: 10px;
+  border: solid 1px hsl(0, 9%, 60%);
 }
 .blog .barREcherche .loupBoutton {
   width: 10%;
@@ -576,6 +615,7 @@ footer {
 .blog .barREcherche .search-button {
   width: 25%;
   height: 40px;
+  text-align: end;
   background-color: white;
   border: none;
   border-radius: 5px;
@@ -620,17 +660,24 @@ footer {
   margin-top: 50px;
   flex-wrap: wrap;
 }
-.blogBloc .publicationBloc .articleBloc {
-  height: 400px;
+.blogBloc .publicationBloc .containerArticle {
   width: 30%;
   display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.blogBloc .publicationBloc .articleBloc {
+  height: 400px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   border: solid 1px rgb(213, 213, 213);
   margin-bottom: 80px;
   color: #2DBAEF;
   border-radius: 10px;
-  background-color: white;
+  background-color: rgb(233, 231, 231);
   transition: box-shadow 0.5s ease, color 0.9s ease, background-color 0.5s ease, border 0.7s ease;
   transition: transform 0.4s ease-in-out;
 }
@@ -647,7 +694,7 @@ footer {
   width: 50%;
   margin: auto;
   text-align: center;
-  border-radius: 5px;
+  border-radius: 10px;
   border: solid 1px black;
 }
 
@@ -1022,7 +1069,17 @@ textarea {
 
 
 }*/
+.AboutUs {
+  width: 95%;
+  margin: auto;
+  border-top: black solid 1px;
+}
+.AboutUs section {
+  margin-bottom: 30px;
+}
+
 .AdminLayout {
+  font-family: "Kanit", sans-serif;
   width: 100%;
   position: absolute;
   z-index: 0;

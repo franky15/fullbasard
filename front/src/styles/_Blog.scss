@@ -11,7 +11,7 @@
     align-items: center;
     color: white;
     background-color: green;
-    border-radius: 5px;
+    border-radius: 10px;
     border: solid 1px black;
     font-weight: bold;
     font-size: 18px; 
@@ -69,10 +69,10 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        border-radius: 5px;
+        border-radius: 10px;
 
       
-        border: solid 2px hsl(0, 9%, 60%);
+        border: solid 1px hsl(0, 9%, 60%);
 
         .loupBoutton{
 
@@ -92,12 +92,14 @@
         }
 
         .search-button{
+
             width: 25%;
             height: 40px;
+            text-align: end;
             background-color: white;
             border: none;
             border-radius: 5px;
-            
+           // border: solid red;
 
             i{
                
@@ -154,7 +156,8 @@
         // display: flex;
         // justify-content: space-between;
         //border-top: solid 1px;
-       // border: solid red;
+       
+       //border: solid red;
 
         
         .h1articlesBloc{
@@ -177,12 +180,20 @@
             //////////////////////
            // border: solid yellow;
     
-            
+            .containerArticle{
+
+                width: 30%;
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                //border: solid red;
+            }
             .articleBloc{
     
                 height: 400px;
-                width: 30%;
+                width: 100%;
                 display: flex;
+                flex-direction: column;
                 justify-content: center;
                 align-items: center;
                 border: solid 1px rgb(213, 213, 213);
@@ -191,11 +202,11 @@
                 margin-bottom: 80px;
                 color: #2DBAEF;
                 border-radius: 10px;
-
-                 background-color: white;
-                //border: solid blue;
+                background-color: rgb(233, 231, 231);
+           
                 transition: box-shadow 0.5s ease, color 0.9s ease, background-color 0.5s ease, border 0.7s ease;
                 transition: transform 0.4s ease-in-out;
+
             }
             
             .articleBloc:hover{
@@ -218,7 +229,7 @@
         width: 50%;
         margin: auto;
         text-align: center;
-        border-radius: 5px;
+        border-radius: 10px;
         border: solid 1px black;
 
     }
