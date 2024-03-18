@@ -12,7 +12,11 @@ import {
 
 import DashBoard from "./DashBoard";
 
+
 const AdminRouter = () => {
+
+	console.log("AdminRouter")
+	
 	return (
 		<Routes>
 			<Route index element={<DashBoard />} />
