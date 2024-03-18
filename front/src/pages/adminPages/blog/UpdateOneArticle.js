@@ -88,6 +88,10 @@ const UpdateOneArticle = ({closeEditArticle, dataFromChildSet}) => {
 		})
 	}
 
+	const handleFileChange = (e) => {
+        setArticle({ ...article, picture: e.target.files[0] });
+    };
+
 	console.log("**** article")	
 	console.log(article)
 
@@ -98,7 +102,19 @@ const UpdateOneArticle = ({closeEditArticle, dataFromChildSet}) => {
 		console.log("**** article")
 		console.log(article)
 
-        articleServices.updateArticle( article)
+		/*transformation des données en FormData car on a un fichier (image) dans l'objet article
+		 cela entraine que l'objet article ne peut pas être envoyé directement il faut le transformer en FormData car c'est une donnée complexe
+		*/
+		const formData = new FormData();
+		formData.append('title', article.title);
+		formData.append('content', article.content);
+		formData.append('picture', article.picture);
+		formData.append('author', article.author);
+		formData.append('category', article.category);
+		formData.append('date', article.date);
+
+
+        articleServices.updateArticle( formData) //article
             .then( (res) => {
 
                 console.log("**** res addArticle")
@@ -126,10 +142,13 @@ const UpdateOneArticle = ({closeEditArticle, dataFromChildSet}) => {
 			//message de notification de l'ajout d'un article
 			const message = "Votre article a bien été modifié avec succès"
 			//mise à jour du state du message de notification dans le composant parent GetAllArticles
-			dataFromChildSet(message)
+			//dataFromChildSet(message)
 			
 			//fermeture du composant EditOneArticle
 			closeEditArticle()
+
+			//rechargement de la page
+			window.location.reload()
 		
     }
 
@@ -157,7 +176,7 @@ const UpdateOneArticle = ({closeEditArticle, dataFromChildSet}) => {
 	
 
 	return (
-		<div className="UpdateOneArticle AddOnArticle">
+		<div className="UpdateOneArticle AddOnArticle" enctype="multipart/form-data">
 			<div className='containerCreateArticle'>
 				<p className='titlePageArticle'>modification de  l'article</p>
 
@@ -196,12 +215,12 @@ const UpdateOneArticle = ({closeEditArticle, dataFromChildSet}) => {
 
 						<label className="labelPicture">
 							Image :
-							<input type="file"  name="picture" className="picture" onChange={articleFunction} />
+							<input type="file"  name="picture" accept="image/*" className="picture" onChange={ (e)=> handleFileChange(e)} />
 						</label>
 
 						<label className="labelCategory">
 							Catégorie *:
-							<select value={article.category}  className="selectCreateArticle"  onChange={articleFunction}>
+							<select value={article.category}  className="selectCreateArticle"  onChange={  articleFunction}>
 								
 								{
 									<option value="">{article.category} </option>

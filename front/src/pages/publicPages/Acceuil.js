@@ -1,14 +1,19 @@
 import React from "react";
 
+//importattion de l'image heros.jpeg qui se trouve dans le dossier images
+import herosImage from "../../images/digital.jpeg";
+import lateralDigital from "../../images/digital.jpeg";
+
 const Acceuil = () => {
 
     
 
 	return <div className="Acceuil">
     <main>
-        <div className="containervoisPlus">
+        <div className="containervoisPlus" style={{ backgroundImage: `url(${herosImage})`,    backgroundPosition: "-150px 0"   }}>
+           
             <div className="voisPlus">
-                <div className="block1">
+                <div className="block1" >
                     <p className="paraph1">Notre Vision</p>
                     <p className="paraph2">En savoir plus</p>
                 </div>
@@ -28,8 +33,8 @@ const Acceuil = () => {
                 <p className="pCenter"><span className="colorLetterHtag">#</span> <span className="colorLetter">Full</span><span className="colorLetter">B</span>asard​</p>
             </div>
             <div className="notreVision">
-                <div className="conteneur-image">
-                    <img src="" alt="Description de l'image" />
+                <div className="conteneur-image"  style={{ backgroundImage: `url(${lateralDigital})` }}>
+                    
                 </div>
                 <div className="pCenterViv">
                     <h2 className="h2Center">NOTRE VISION DU NUMÉRIQUE​</h2>

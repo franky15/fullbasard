@@ -62,6 +62,7 @@ console.log(searchArticleListContext)
 			console.log("**** searchArticleListContext")
 			console.log(searchArticleListContext)
 
+			
 			setArticles(searchArticleListContext.list)
 
 			//const dataArticlesFilter = dataArticlesContext.filter( articleItem => articleItem.author.trim().toLowerCase() === inputSearchBarArticles.value.trim().toLowerCase()  || articleItem.date.toString().trim().split("T")[0] === inputSearchBarArticles.value.toString().trim() ) 
@@ -163,7 +164,47 @@ console.log(searchArticleListContext)
 	}
 	const closeGetOneArticle = () => {setIsOpenGetOneArticle(false)}
 
+	//gestion du state de l'existence du like
+	const [ isheart, setIsheart ] = useState({
+		like: 1,
+		disLike: -1,
+		normal: 0,
+		opacityMax: 1,
+		opacityMin: 0,
+		time: 0.5,
+		delay: "ease",
+		heightMax: 40,
+		show: true,
+		//fontsizeMax: 30,
+		//fontsizeMin: 0,
+	})
+
 	
+	//NB : la méthode toggle() ajoute une classe si elle n'est pas présente, et la supprime si elle est présente.
+	//mise à jour du state de l'existence du like
+	const handleLike = (idHeart) => {
+
+		console.log("**** clique sur le coeur dislike",  idHeart)
+
+		//récupération de l'élément du coeur concerné
+		const dislikeHeart = document.querySelector(`.dislike${idHeart}`)
+		const likeHeart = document.querySelector(`.like${idHeart}`)
+		 likeHeart.classList.toggle("animatelike")
+		 dislikeHeart.classList.toggle("animatedislike")
+	}
+
+	//mise à jour du state de l'absece  du like
+	const handleDislike = (idHeart) => {
+
+		console.log("**** clique sur le coeur like",  idHeart)
+	
+		//récupération de l'élément du coeur concerné
+		const dislikeHeart = document.querySelector(`.dislike${idHeart}`)
+		const likeHeart = document.querySelector(`.like${idHeart}`)
+		likeHeart.classList.toggle("animatelike")
+		dislikeHeart.classList.toggle("animatedislike")
+	}
+
 	return (
 		
 		<div className="blogBloc">
@@ -171,22 +212,39 @@ console.log(searchArticleListContext)
 			<h1 className="h1articlesBloc">Articles</h1>
 			<section className="publicationBloc"  >
 
-				{	( isOpenArticles && articles && articles.length > 0) && articles.map( (article, index) => 
-
-					<div className="containerArticle" key={`${article.title}-${index}`}   style={{ backgroundImage: `url('../../images/newspaper.svg')` }} >
-					<button className="articleBloc"  onClick={ () => articleFunction(article.id) }>
-						<h2 className="titreArticleBloc">Titre: {article.title}</h2>
-						<p className="contentArticleBloc">Auteur: {article.author}</p>
-						<p className="contentArticleBloc">Date de publication :{article.date.toString().split("T")[0]}</p>
-
-					</button>
-					</div>
+			{
+				(isOpenArticles && articles && articles.length > 0) && articles.map((article, index) => (
 					
-					)
-					
-					
+						<button className="articleBloc" >
+							<div className="containerArticle"  onClick={() => articleFunction(article.id)} key={`${article.title}-${index}`} style={{backgroundImage: `url(${article.picture})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center'}}></div>
+							<div className="containerArticleContent">
+								<div className="containerArticleContentDetails">
+									<h2 className="titreArticleBloc descriptionItem">Titre: {article.title}</h2>
+									<p className="contentArticleBloc descriptionItem">Auteur: {article.author}</p>
+									<p className="contentArticleBloc descriptionItem">Date de publication: {article.date.toString().split("T")[0]}</p>
+								</div>
+								<div className="containerArticleActions">
+									<span className="commentArticleBloc" title="Commentez"><i class="fa-regular fa-comment"></i></span>
 
-				}
+									<span className="likeArticleBloc" title="Likez">
+									
+								 	<i class={`fa-regular fa-heart dislike dislike${article.id}`} id={`${article.id}`} onClick={()=> { setIsheart({...isheart, show: false});  handleLike(article.id) } }  ></i>
+											
+									 <i class={ `fa-solid fa-heart like like${article.id}` } id={`${article.id}`} onClick={ ()=>{ setIsheart({...isheart, show: true}); handleDislike(article.id) } }  ></i>
+								
+									
+									</span>
+											
+
+									
+									<span className="numberlikeArticle" title="Nombre de like">{"10"}</span>
+									
+								</div>
+							</div>
+						</button>
+					
+				))
+			}
 
 
 

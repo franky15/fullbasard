@@ -2,8 +2,10 @@
 const express = require("express");
 const cors = require("cors"); 
 
-//pour éxécuter le __le dirname
+//importation du module path pour la gestion des chemins de fichiers à cause de multer qui va enregistrer les fichiers (images)
 const path = require('path');
+
+const fs = require('fs');
 
 //importation du package pour les variables d'environnement
 const dotenv = require("dotenv").config();
@@ -19,14 +21,15 @@ const articlesRoutes = require("./routes/articlesRoutes");
 //creation de l'api
 const app = express();
 
+
+var __dirname = path.resolve();  //récupération du chemin absolu du répertoire du fichier actuel si non on aura une erreur sur __dirname
 app.use(cors());   //evite les erreurs cors
-app.use(express.json()); //l'api va communiquer en json et c'est là qu'on donne accès au body de la requête
-app.use(express.urlencoded({ extended: true })); //l'encodage des url car on a plusieurs types d'url
 
-
-//mise en place des routes
+app.use(express.json());
+app.use(express.urlencoded({ extended: true })); 
 app.use("/users", usersRoutes);
 app.use("/articles", articlesRoutes); 
+app.use('/images', express.static(path.join(__dirname, 'images')));  
 
 
 module.exports = app; 

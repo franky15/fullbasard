@@ -66,10 +66,40 @@ const GetAllArticles = () => {
 			keyWordSearch: keyWord 
 		})
 
+		//récupération de la valeur du champ de recherche
+		let inputSearch = document.querySelector(".searchBar")
+		inputSearch.value = keyWord
+
+		console.log("**** inputSearch")
+		console.log(inputSearch.value)
+		
+		//gestion du champ de recherche quand il est vide
+		/*if( e.target.value === "" && (dataArticlesContext && dataArticlesContext.length > 0) ){
+
+			console.log("*** la barre de recherche est vide")
+
+			//mise à jour state de la recherche de l'article
+			setArticlesList(dataArticlesContext)
+		}*/
+
+		
+
 		
 
 
 	}
+
+	//////////////////////////////////////////////////
+	/*
+	//gestion de la recherche d'articles qaund on clique sur une catégorie
+	if( (dataArticlesContext && dataArticlesContext.length > 0) && (inputSearchBarArticles.keyWordSearch !== "Date de publication,Auteur..." && inputSearchBarArticles.keyWordSearch !== "") ){
+
+		const categoryFilter = dataArticlesContext.filter( (item) => item.category.toLowerCase().trim() === inputSearchBarArticles.keyWordSearch.toLowerCase().trim() )
+		//mise à jour state de la recherche de l'article
+		setArticlesList(categoryFilter)
+	}*/
+
+	//////////////////////////////////////////////////
 
 	//fonction de mise à jour du state de la recherche d'articles lorsqu'on entre un mot clé dans la barre de recherche
 	let change = (e) => {
@@ -83,7 +113,7 @@ const GetAllArticles = () => {
 		})
 
 		//////////////////////////////////////////////////
-		
+
 		//gestion du champ de recherche quand il est vide
 		if( e.target.value === "" && (dataArticlesContext && dataArticlesContext.length > 0) ){
 
@@ -137,14 +167,26 @@ const GetAllArticles = () => {
 
 			console.log("**** ma fonction de filtrage") 
 
+			console.log("**** inputSearchBarArticles")
+			console.log(inputSearchBarArticles.keyWordSearch)
+			
+			
 			//gestion de la recherche d'articles
+			
 			if( ( inputSearchBarArticles.keyWordSearch !== "Date de publication,Auteur..." && inputSearchBarArticles.keyWordSearch !== "") && (dataArticlesContext && dataArticlesContext.length > 0) ){  
 
 				console.log("*** la barre de recherche n'est pas vide")
 				console.log(dataArticlesContext)
-				//ici la date est au format "2024-03-04T23:00:00.000Z" vu que la recherche par date se fait au format "2024-03-04" on fait donc un split pour récupérer la date
-				const listFilterSearchBarArticle = dataArticlesContext.filter( (item) => item.author.toLowerCase().trim() === inputSearchBarArticles.keyWordSearch.toLowerCase().trim() || item.date.trim().split("T")[0] === inputSearchBarArticles.keyWordSearch.trim() )
+
+				console.log("**** inputSearchBarArticles")
+				console.log(inputSearchBarArticles.keyWordSearch)
 				
+				//ici la date est au format "2024-03-04T23:00:00.000Z" vu que la recherche par date se fait au format "2024-03-04" on fait donc un split pour récupérer la date
+				const listFilterSearchBarArticle = dataArticlesContext.filter( (item) => item.author.toLowerCase().trim() === inputSearchBarArticles.keyWordSearch.toLowerCase().trim() || item.date.trim().split("T")[0] === inputSearchBarArticles.keyWordSearch.trim()  || item.category.trim() === inputSearchBarArticles.keyWordSearch.trim() )
+				
+				console.log("**** listFilterSearchBarArticle")
+				console.log(listFilterSearchBarArticle)
+
 				//mise à jour state de la recherche de l'article
 				setArticlesList(listFilterSearchBarArticle)
 
@@ -252,6 +294,8 @@ const GetAllArticles = () => {
 	}
 	const closeGetOneArticle = () => {setIsOpenGetOneArticle(false)}
 	
+	console.log("**** articlesList")
+	console.log(articlesList)
 
 	return (
 		<>
@@ -323,12 +367,13 @@ const GetAllArticles = () => {
 						
 						<h2 className="category-title">Catégories</h2>
 						<ul className="categories-list">
+							
 							<li className="category-item allArticles" onClick={ ()=> findArticles("Date de publication,Auteur...") }>Tous les articles</li>
-							<li className="category-item ecommerce" onClick={ ()=> findArticles("ecommerce") }>E-commerce</li>
-							<li className="category-item productOwner" onClick={ ()=> findArticles("productOwner") }>Product Owner</li>
-							<li className="category-item devFront" onClick={ ()=> findArticles("deFront") }>Développeur Front-End</li>
-							<li className="category-item devBack" onClick={ ()=> findArticles("devBack") }>Développeur Back-End</li>
-							<li className="category-item devFull" onClick={ ()=> findArticles("devFull") }>Développeur Fullstack</li>
+							{
+								(dataArticlesContext && dataArticlesContext.length > 0) && dataArticlesContext.map( (article, index) => 
+									<li className="category-item" key={`${article.id}-${index}`} onClick={ ()=> findArticles(article.category) }>{article.category}</li>
+								)
+							}
 						</ul>
 					</section>
 				</section>

@@ -4,6 +4,10 @@ const moment = require('moment'); //permet de formater la date
 const DB = require("../mysql.config");
 const bcrypt = require("bcrypt");
 
+const fs = require("fs");
+
+
+
 //POST creation d'un article
 exports.createArticle = (req, res, next) => {
 	console.log("*** bienvenue dans createArticle ***");
@@ -19,23 +23,42 @@ exports.createArticle = (req, res, next) => {
 
 	let userId = req.auth.userId;
 
-	let { picture, title, content, author, category, date } = req.body;
+	// Si un fichier est téléchargé, vous pouvez obtenir son chemin ainsi
+	//const imgUrl = `${req.protocol}://${req.get("host")}/images/${req.file.filename}`;
+	
+	let {  title, content, author, category, date } = req.body;
 
-	//fonction formatage de la date
-	/*
-	const formatDateForMySQL = (date) => {
-		const maDate = new Date(date);
-		const annee = maDate.getFullYear();
-		const mois = String(maDate.getMonth() + 1).padStart(2, "0");
-		const jour = String(maDate.getDate()).padStart(2, "0");
+	console.log("****req.file.filename");
+	console.log(req.file.filename);
+
+
+	//let { picture, title, content, author, category, date } = req.body;
+
+	
+	let picture ;
+	//gestion du corps de la requête en fonction de l'envoie d'une image ou pas lors de la création d'un article
+	if (req.file) {
+
+		console.log("***req.file existe");
+		console.log(req.file);
+
+		//remplacement de l'ancienne image par la nouvelle image sous forme d'url
+		picture = `${req.protocol}://${req.get("host")}/images/${req.file.filename}`;
+
+		let {  title, content, author, category, date } = req.body;
+	
+	} else {
+
+		console.log("***il n y a pas de req.file");
+
 		
-		return `${annee}-${mois}-${jour}`;
-		//return `${annee}-${mois}-${jour} ${heures}:${minutes}:${secondes}`;
-	};*/
+		let { picture, title, content, author, category, date } = req.body;
+	}
+	
 
-	/*Attention à bien formater la date au format qu'on veut avant de l'envoyer à la base de données si non la base de donnée formatera la date au format par défaut
-	ce format doit être celui auquel on veut que la donnée apparaisse aussi bien au bien dans la base que dans le front*/
-	//const dateFormateePourMySQL = formatDateForMySQL(date);
+	//let { picture, title, content, author, category, date } = objetArticle;
+	
+	
 	const dateFormateePourMySQL = moment(date).format('YYYY-MM-DD');
 	
 	console.log("dateFormateePourMySQL");
@@ -44,6 +67,7 @@ exports.createArticle = (req, res, next) => {
 	//requete récupérant tous les articles
 	const sqlSelectAllArticles = "SELECT * FROM Articles";
 
+	
 	if (role === "admin") {
 		//vérification si l'article existe déjà dans la base de données
 		DB.query(sqlSelectAllArticles, (err, resSqlSelectAllArticles) => {
@@ -240,23 +264,43 @@ exports.getArticle = (req, res, next) => {
 exports.updateArticle = (req, res, next) => {
 	console.log("*** bienvenue dans updateArticle ***");
 
-	let { picture, title, content, author, category, date } = req.body;
+	//let { picture, title, content, author, category, date } = req.body;
 
-	/*
-	//fonction formatage de la date
-	const formatDateForMySQL = (date) => {
-		const maDate = new Date(date);
-		const annee = maDate.getFullYear();
-		const mois = String(maDate.getMonth() + 1).padStart(2, "0");
-		const jour = String(maDate.getDate()).padStart(2, "0");
-		const heures = String(maDate.getHours()).padStart(2, "0");
-		const minutes = String(maDate.getMinutes()).padStart(2, "0");
-		const secondes = String(maDate.getSeconds()).padStart(2, "0");
+	////////////////////////
 
-		return `${annee}-${mois}-${jour} ${heures}:${minutes}:${secondes}`;
-	};
+	// Si un fichier est téléchargé, vous pouvez obtenir son chemin ainsi
+	//const imgUrl = `${req.protocol}://${req.get("host")}/images/${req.file.filename}`;
+	
+	let {  title, content, author, category, date } = req.body;
 
-	const dateFormateePourMySQL = formatDateForMySQL(date);*/
+	console.log("****req.file.filename");
+	console.log(req.file.filename);
+
+
+	//let { picture, title, content, author, category, date } = req.body;
+
+	
+	let picture ;
+	//gestion du corps de la requête en fonction de l'envoie d'une image ou pas lors de la création d'un article
+	if (req.file) {
+
+		console.log("***req.file existe");
+		console.log(req.file);
+
+		//remplacement de l'ancienne image par la nouvelle image sous forme d'url
+		picture = `${req.protocol}://${req.get("host")}/images/${req.file.filename}`;
+
+		let {  title, content, author, category, date } = req.body;
+	
+	} else {
+
+		console.log("***il n y a pas de req.file");
+
+		
+		let { picture, title, content, author, category, date } = req.body;
+	}
+	
+	//////////////////////:
 
 	/*Attention à bien formater la date au format qu'on veut avant de l'envoyer à la base de données si non la base de donnée formatera la date au format par défaut
 	ce format doit être celui auquel on veut que la donnée apparaisse aussi bien au bien dans la base que dans le front*/
@@ -273,7 +317,7 @@ exports.updateArticle = (req, res, next) => {
 
 	console.log("**role");
 	console.log(role);
-
+	
 	//requete récupérant l'article
 	const sqlSelectAllArticles = `SELECT * FROM Articles WHERE id = ${id}`;
 

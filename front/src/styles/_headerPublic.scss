@@ -2,6 +2,7 @@
     margin: 0;
     font-family: "Kanit", sans-serif;
     //background-color: red;
+    border-bottom: solid 1px;
     
 }
 
@@ -12,16 +13,36 @@
     display: flex;
     justify-content: space-between;
     font-weight: bold;
-    font-size: 32px;
+    font-size: 23px;
+    border-bottom: solid 1px;
     //border: solid red;
+
+    
+   //////////////////////////////
+    //pour ficxer le header
+    /*// height: 50px;
+        position:  fixed;
+        top: 0;
+        width: 100%;
+        background-color: #ffffff; 
+        z-index: 1000;*/
+     
+       
+   //////////////////////////////
+     
+    
 }
 
 .navbar .logo {
+
     width:10% ;
     display: flex;
     align-items: center;
     color: black;
     margin-left: 50px;
+    font-size: 32px;
+    cursor: pointer;
+    text-decoration: none;
     
     /*border: solid red;*/
 }
@@ -54,9 +75,13 @@
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    transition: font-size 0.3s, color 0.3s;
 }
 
 .navbar li a:hover {
-    border-top: solid 3px;
-    color: rgb(104, 64, 12);
+    //border-top: 5px solid red;
+    color: #2DBAEF;
+    font-size: 40px;
 }
+
+

@@ -26,16 +26,72 @@ const HeaderAdmin = () => {
 		accountServices.logout()
 	}
 	
+	//state de gestion du fil d'ariane
+	const [ filAriane, setFilAriane ] = useState({
+
+		isAccueil: true,
+		isAbout: false,
+		isContact: false,
+		isBlog: false,
+		isAddAcount: false,
+		isLogin: false,
+		isLogout: false,
+
+	})
 
 	return (
-		<div className="HeaderAdmin">
-			 <nav className="navbar">
-				<div className="logo"> <span className="colorLetter">F</span> ull<span className="colorLetter">B</span> asard</div>
-				<ul className="contenaireMenu">
+		<div className="HeaderAdmin" >
+			 <nav className="navbar" >
+			 <Link to="/" className="logo"> <span className="colorLetter">F</span> ull<span className="colorLetter">B</span> asard</Link>
+				<ul className="contenaireMenu" style={{ width: "20%"}}>
 				
-					<li><Link to="/admin/blog/articles">Accueil</Link></li>
-					<li onClick={() => openSignum()}><Link >Créer un compte</Link></li>
-					<li className="boutonContact boutonConexion" onClick={() => logout()}><Link to="/">Déconexion</Link></li>
+					{
+						filAriane.isAccueil  ? (<li style={{ borderTop: "5px solid #2DBAEF", fontSize: "32px" }}><Link to="/admin/blog/articles" 
+							onClick={ ()=> setFilAriane({
+								...filAriane,isAccueil: true,isAbout: false,isContact: false,isBlog: false,isAddAcount: false,isLogin: false,
+									
+							})} >Accueil</Link></li>)
+						:
+						(<li><Link to="/admin/blog/articles" 
+							onClick={ ()=> setFilAriane({
+								...filAriane,isAccueil: true,isAbout: false,isContact: false,isBlog: false,isAddAcount: false,isLogin: false,
+									
+							})}>Accueil</Link></li>)
+					}
+					{
+						
+						filAriane.isAddAcount ? (
+							<li className="boutonContact1 boutonConexion" style={{ borderTop: "5px solid #2DBAEF", fontSize: "40px" }} 
+								onClick={() => {
+									openSignum();
+									//openConexion();
+									setFilAriane({
+										...filAriane,isAddAcount: true,isLogin: false,	isContact: false,isAbout: false,isAccueil: false,isBlog: false,	
+									});
+										
+								}}
+							><Link ><i class="fa-solid fa-user-plus"></i></Link>
+										
+							</li>
+						) : (
+							<li className="boutonContact1 boutonConexion" 
+								onClick={() => {
+									openSignum();
+									//openConexion();
+									setFilAriane({
+										...filAriane,isAddAcount: true,isLogin: false,isContact: false,isAbout: false,isAccueil: false,isBlog: false,	isAddAcount: false,
+									});
+										
+								}}
+							><Link ><i class="fa-solid fa-user-plus"></i></Link>
+										
+							</li>
+						)
+
+					
+					
+					}
+					<li className="boutonContact1 boutonConexion" onClick={() => logout()}><Link to="/"><i className="fa-solid fa-right-to-bracket"></i></Link></li>
 					
 				</ul>
 			</nav>

@@ -11,6 +11,8 @@ import AddOnArticle from "./AddOnArticle";
 import UpdateOneArticle from "./UpdateOneArticle";
 import DeleteOneArticle from "./DeleteOneArticle";
 
+import  GetAllArticles  from "./GetAllArticles"; 
+
 
 const GetOneArticle = ({setInputSearchBarArticlesFunction, closeGetOneArticle, openArticles }) => {
 
@@ -54,6 +56,22 @@ const GetOneArticle = ({setInputSearchBarArticlesFunction, closeGetOneArticle, o
 	//gestion du state de la liste des articles
 	//const [ articlesList, setArticlesList ] = useState([])
 
+	//////////////////////////////////:
+	const [articleState, setArticleState] = useState({
+
+		isAdding: false,
+		isEditing: false,
+		isDeleting: false,
+		isGetOne: true,
+		isComponentDelete: false,
+		isOpenAllArticle: false,
+		isGetAllArticle: false
+	
+  	});
+
+
+	//////////////////////////////////:
+
 	//state de gestion du mot clé entré dans la barre de recherche
 	const [ inputSearchBarArticles, setInputSearchBarArticles ] = useState({
 		
@@ -92,16 +110,13 @@ const GetOneArticle = ({setInputSearchBarArticlesFunction, closeGetOneArticle, o
 		})
 
 		/*
-		setSearchArticleListContext({
-			...searchArticleListContext,
-			keyWordSearch: inputSearchBarArticles
-		})*/
-
-		// closeGetOneArticle()
-		// openArticles()
-
-
-		//setSearchArticleListContext(e.target.value)
+		//mise à jour du state de l'affichage du composant GetAllArticles
+		if( e.target.value !== "Date de publication,Auteur..." && e.target.value !== "" ){
+		
+		
+			setArticleState({ ...articleState,isGetOne: false, isGetAllArticle: true })
+		
+		}*/
 
 		
 		
@@ -148,11 +163,6 @@ const GetOneArticle = ({setInputSearchBarArticlesFunction, closeGetOneArticle, o
 		if(currentURL.includes("visitor")  ){
 
 			
-
-			//setArticleState({ ...articleState,isGetOne: true, isOpenAllArticle: true })
-			//openGetOneArticle()
-			//closeArticles()
-			//closeGetAllArticle()
 			
 			navigate(`/visitor/blog/articles/${id}`)
 		
@@ -160,12 +170,6 @@ const GetOneArticle = ({setInputSearchBarArticlesFunction, closeGetOneArticle, o
 
 		}else if(currentURL.includes("admin") ){
 			
-			
-
-			//setArticleState({ ...articleState,isGetOne: false, isOpenAllArticle: true, })
-			//openGetOneArticle()
-			//closeArticles()
-			//closeGetAllArticle()
 			
 			navigate(`/admin/blog/articles/${id}`)
 			
@@ -175,20 +179,7 @@ const GetOneArticle = ({setInputSearchBarArticlesFunction, closeGetOneArticle, o
 	
 	//////////////////////////////////////////////////
 
-	//////////////////////////////////:
-	const [articleState, setArticleState] = useState({
-
-		isAdding: false,
-		isEditing: false,
-		isDeleting: false,
-		isGetOne: true,
-		isComponentDelete: false,
-		isOpenAllArticle: false,
 	
-  	});
-
-
-	//////////////////////////////////:
 
 	useEffect( () => {
 
@@ -269,6 +260,7 @@ const GetOneArticle = ({setInputSearchBarArticlesFunction, closeGetOneArticle, o
 				//setSearchArticleListContext(listArticles)
 
 				navigate(`/visitor/blog/articles`)
+				//window.location.reload();
 
 			}else if(currentURL.includes("admin")  && inputSearchBarArticles.keyWordSearch !== "Date de publication,Auteur..." &&  inputSearchBarArticles.keyWordSearch !== ""  ){
 				/*
@@ -292,12 +284,14 @@ const GetOneArticle = ({setInputSearchBarArticlesFunction, closeGetOneArticle, o
 					})
 
 					navigate(`/admin/blog/articles`)
+
+					//window.location.reload();
 			
 			}
 
 
 		}
-		articleFunction()
+		//articleFunction()
 		
 
 	},[inputSearchBarArticles, currentURL,id,dataArticlesContext,inputSearchBarArticles.keyWordSearch,searchArticleListContext,setSearchArticleListContext,navigate])
@@ -338,6 +332,19 @@ const GetOneArticle = ({setInputSearchBarArticlesFunction, closeGetOneArticle, o
 	}*/
 	// openGetAllArticle()
 
+	//redirection vers la page de tous les articles
+	const goAllArticlesFunction = () => {
+
+		if(currentURL.includes("visitor")){
+
+			navigate(`/visitor/blog/articles`)
+
+		}else if(currentURL.includes("admin")){
+
+			navigate(`/admin/blog/articles`)
+
+		}
+	}
 
 	return (
 		<>
@@ -349,7 +356,7 @@ const GetOneArticle = ({setInputSearchBarArticlesFunction, closeGetOneArticle, o
 				<section className="blog">
 					
 					{	(articleState.isGetOne && article)  &&
-						<div className="containerGetOneArticle">
+						<div className="containerGetOneArticle" style={{ marginTop: "60px" }} >
 							<h1 className="containerGetOneArticleTitle">{article.title}</h1>
 							<p className="containerGetOneArticleContent">{article.content}</p>
 							<p className="containerGetOneArticleAuthor"> <span  style={{ fontWeight:"bold" }}>Auteur :</span> {  article.author}</p>
@@ -372,7 +379,9 @@ const GetOneArticle = ({setInputSearchBarArticlesFunction, closeGetOneArticle, o
 
 					}
 
-					{
+					{	/*
+						articleState.isGetAllArticle && (searchArticleListContext.list && searchArticleListContext.list.length > 0) && inputSearchBarArticles.keyWordSearch !== "Date de publication,Auteur..." &&
+						<GetAllArticles/>*/
 						/*
 						articleState.isOpenAllArticle && (dataArticlesContext && dataArticlesContext.length > 0) &&
 							<div className="containerComponentBlog">
@@ -473,26 +482,39 @@ const GetOneArticle = ({setInputSearchBarArticlesFunction, closeGetOneArticle, o
 
 
 
-						<div className="barREcherche">
+						{/*<div className="barREcherche">
 							<button className="loupBoutton" onClick="clearSearch()">
 								<i className="fa-solid fa-magnifying-glass"></i>
 							</button>
 							<input type="text" className="searchBar" name="keyWordSearch"  value={   inputSearchBarArticles.keyWordSearch  } onChange={  change } />
 							<button className="search-button"><i className="fa-solid fa-delete-left" onClick={() => setInputSearchBarArticles({ keyWordSearch: "" })} ></i></button>
 							<div className="search-buttons"></div>
-						</div>
+						</div>*/}
 						<section className="categories">
 							
-							<h2 className="category-title">Catégories</h2>
+							{/*<h2 className="category-title">Catégories</h2>*/}
 							<ul className="categories-list">
-								<li className="category-item allArticles" onClick={ ()=> findArticles("articles") }>Tous les articles</li>
-								<li className="category-item ecommerce" onClick={ ()=> findArticles("ecommerce") }>E-commerce</li>
-								<li className="category-item productOwner" onClick={ ()=> findArticles("productOwner") }>Product Owner</li>
-								<li className="category-item devFront" onClick={ ()=> findArticles("deFront") }>Développeur Front-End</li>
-								<li className="category-item devBack" onClick={ ()=> findArticles("devBack") }>Développeur Back-End</li>
-								<li className="category-item devFull" onClick={ ()=> findArticles("devFull") }>Développeur Fullstack</li>
+								{/*
+								{
+									(dataArticlesContext && dataArticlesContext.length > 0) && dataArticlesContext.map( (article, index) => 
+										<li className="category-item" key={`${article.title}-${index}`} onClick={ ()=> findArticles(article.category) }>{article.ca}</li>
+									)
+								}
+								<li className="category-item allArticles" onClick={ ()=> findArticles("Date de publication,Auteur...") }>Tous les articles</li>
+								{
+									(dataArticlesContext && dataArticlesContext.length > 0) && dataArticlesContext.map( (article, index) => 
+										<li className="category-item" key={`${article.id}-${index}`} onClick={ ()=> findArticles(article.category) }>{article.category}</li>
+									)
+								}
+								*/}
+								<li className="category-item allArticles" onClick={ ()=> goAllArticlesFunction() } style={{fontSize: "32px" }} >Tous les articles</li>
 							</ul>
-					</section>
+							
+							
+							
+						</section>
+
+						
 
 					</section>
 				

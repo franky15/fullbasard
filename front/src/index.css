@@ -2,6 +2,7 @@
 .HeaderPublic {
   margin: 0;
   font-family: "Kanit", sans-serif;
+  border-bottom: solid 1px;
 }
 
 .navbar {
@@ -11,7 +12,14 @@
   display: flex;
   justify-content: space-between;
   font-weight: bold;
-  font-size: 32px;
+  font-size: 23px;
+  border-bottom: solid 1px;
+  /*// height: 50px;
+      position:  fixed;
+      top: 0;
+      width: 100%;
+      background-color: #ffffff; 
+      z-index: 1000;*/
 }
 
 .navbar .logo {
@@ -20,6 +28,9 @@
   align-items: center;
   color: black;
   margin-left: 50px;
+  font-size: 32px;
+  cursor: pointer;
+  text-decoration: none;
   /*border: solid red;*/
 }
 
@@ -51,11 +62,12 @@
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  transition: font-size 0.3s, color 0.3s;
 }
 
 .navbar li a:hover {
-  border-top: solid 3px;
-  color: rgb(104, 64, 12);
+  color: #2DBAEF;
+  font-size: 40px;
 }
 
 .formulaireNoneCreer {
@@ -174,7 +186,6 @@ body {
 /*parent*/
 main {
   height: 1600px;
-  background-color: rgb(234, 234, 234);
 }
 
 /*enfant1*/
@@ -275,12 +286,11 @@ main {
 }
 
 .conteneur-image {
-  border: solid rgb(125, 32, 161);
   display: flex;
   margin-right: 200px;
-  width: 200px;
-  height: 200px;
-  margin-top: 60px;
+  width: 40%;
+  height: 100%;
+  margin-top: 80px;
 }
 
 .secVide {
@@ -566,7 +576,6 @@ footer .footer-section .memeTout {
 .blog {
   display: flex;
   justify-content: space-between;
-  border-top: solid 1px gray;
 }
 .blog .containerComponentBlog {
   width: 100%;
@@ -597,6 +606,7 @@ footer .footer-section .memeTout {
   justify-content: space-between;
   align-items: center;
   border-radius: 10px;
+  margin-top: 20px;
   border: solid 1px hsl(0, 9%, 60%);
 }
 .blog .barREcherche .loupBoutton {
@@ -633,6 +643,7 @@ footer .footer-section .memeTout {
   align-items: start;
 }
 .blog .categories .categories-list {
+  width: 100%;
   display: flex;
   flex-direction: column;
   color: #2DBAEF;
@@ -641,9 +652,26 @@ footer .footer-section .memeTout {
   padding-left: 0px;
 }
 .blog .categories .categories-list .category-item {
-  margin-top: 10px;
+  width: 90%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
   cursor: pointer;
-  transition: color 0.5s ease;
+  font-size: 23px;
+  transition: color 1s ease, background-color 0.5s ease, font-size 0.5s ease, transform 0.3s ease;
+}
+.blog .categories .categories-list .category-item:hover {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  background-color: #2DBAEF;
+  color: white;
+  box-shadow: 4px 0px 14px 2px rgba(0, 0, 0, 0.44);
+  cursor: pointer;
+  transform: translateX(30px);
 }
 
 /******** style du composant Blog*/
@@ -660,34 +688,107 @@ footer .footer-section .memeTout {
   margin-top: 50px;
   flex-wrap: wrap;
 }
-.blogBloc .publicationBloc .containerArticle {
-  width: 30%;
+.blogBloc .publicationBloc .articleBloc {
+  font-family: "Kanit", sans-serif;
+  height: 600px;
+  width: 47%;
+  padding: 0px;
+  margin-bottom: 80px;
+  border: none;
+  background-color: white;
+  border-radius: 10px;
+  border: solid 2px rgb(213, 213, 213);
+}
+.blogBloc .publicationBloc .articleBloc .containerArticle {
+  width: 100%;
+  height: 80%;
+  border-radius: 10px;
+  border-radius: 10px 10px 0px 0px;
+  cursor: pointer;
+  transition: background-color 0.5s ease, border 0.7s ease;
+}
+.blogBloc .publicationBloc .articleBloc .containerArticle:hover {
+  box-shadow: 4px 0px 14px 2px rgba(0, 0, 0, 0.44);
+}
+.blogBloc .publicationBloc .articleBloc .containerArticleContent {
+  width: 100%;
+  height: 20%;
+  padding: 0px;
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
+  border-top: solid 2px rgb(213, 213, 213);
 }
-.blogBloc .publicationBloc .articleBloc {
-  height: 400px;
-  width: 100%;
+.blogBloc .publicationBloc .articleBloc .containerArticleContent .containerArticleContentDetails {
+  width: 72%;
+  height: 100%;
+  padding: 0px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  border: solid 1px rgb(213, 213, 213);
-  margin-bottom: 80px;
-  color: #2DBAEF;
-  border-radius: 10px;
-  background-color: rgb(233, 231, 231);
-  transition: box-shadow 0.5s ease, color 0.9s ease, background-color 0.5s ease, border 0.7s ease;
-  transition: transform 0.4s ease-in-out;
+  border-right: solid 1px rgb(213, 213, 213);
 }
-.blogBloc .publicationBloc .articleBloc:hover {
-  background-color: #2DBAEF;
-  box-shadow: 4px 0px 14px 2px rgba(0, 0, 0, 0.3);
-  transform: scale(1.1);
-  color: white;
-  border: none;
+.blogBloc .publicationBloc .articleBloc .containerArticleContent .containerArticleContentDetails h2 {
+  font-size: 23px;
+  width: 400px; /* Définissez la largeur maximale souhaitée pour votre conteneur */
+  white-space: nowrap; /* Empêche le texte de se retourner */
+  overflow: hidden; /* Cache le texte dépassant de la limite */
+  text-overflow: ellipsis; /* Remplace le texte dépassant par des points de suspension */
+}
+.blogBloc .publicationBloc .articleBloc .containerArticleContent .containerArticleContentDetails p {
+  font-size: 18px;
+  width: 400px; /* Définissez la largeur maximale souhaitée pour votre conteneur */
+  white-space: nowrap; /* Empêche le texte de se retourner */
+  overflow: hidden; /* Cache le texte dépassant de la limite */
+  text-overflow: ellipsis; /* Remplace le texte dépassant par des points de suspension */
+}
+.blogBloc .publicationBloc .articleBloc .containerArticleContent .containerArticleContentDetails .descriptionItem {
+  text-align: start;
+  margin: 5px;
+}
+.blogBloc .publicationBloc .articleBloc .containerArticleContent .containerArticleActions {
+  width: 28%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.blogBloc .publicationBloc .articleBloc .containerArticleContent .containerArticleActions span {
+  width: 33%;
+  font-size: 40px;
+  color: #2DBAEF;
   cursor: pointer;
+}
+.blogBloc .publicationBloc .articleBloc .containerArticleContent .containerArticleActions .numberlikeArticle {
+  font-size: 23px;
+}
+.blogBloc .publicationBloc .articleBloc .containerArticleContent .containerArticleActions .likeArticleBloc {
+  position: relative;
+}
+.blogBloc .publicationBloc .articleBloc .containerArticleContent .containerArticleActions .likeArticleBloc .dislike {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  opacity: 1;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.blogBloc .publicationBloc .articleBloc .containerArticleContent .containerArticleActions .likeArticleBloc .like {
+  font-size: 0px;
+  position: absolute;
+  cursor: pointer;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.6s ease, transform 0.6s ease, font-size 0.6s ease;
+}
+.blogBloc .publicationBloc .articleBloc .containerArticleContent .containerArticleActions .likeArticleBloc .animatelike {
+  opacity: 1;
+  font-size: 40px;
+}
+.blogBloc .publicationBloc .articleBloc .containerArticleContent .containerArticleActions .likeArticleBloc .animatedislike {
+  opacity: 0;
+  font-size: 0px;
 }
 
 .containerGetOneArticle {
@@ -1072,7 +1173,6 @@ textarea {
 .AboutUs {
   width: 95%;
   margin: auto;
-  border-top: black solid 1px;
 }
 .AboutUs section {
   margin-bottom: 30px;

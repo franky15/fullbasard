@@ -40,7 +40,7 @@ const AddOnArticle = ({ closeAddArticle }) => {
 
 		title: "Entrer le titre de l'article ",
 		content: "Entrer le contenu de l'article",
-		picture: "Insérer une image",
+		picture: null,
 		author: "Entrer le nom de l'auteur",
 		category: "Choisir une catégorie",
 		date: "Entrer la date de publication"
@@ -58,6 +58,9 @@ const AddOnArticle = ({ closeAddArticle }) => {
         })
     }
 
+	const handleFileChange = (e) => {
+        setArticle({ ...article, picture: e.target.files[0] });
+    };
 
 	//gestion des des deux champs catergories
 	const newCategoryFunction = () => {
@@ -181,7 +184,22 @@ const AddOnArticle = ({ closeAddArticle }) => {
 
         e.preventDefault()
 
-        articleServices.addArticle( article)
+		////////////////////////
+		/*transformation des données en FormData car on a un fichier (image) dans l'objet article
+		 cela entraine que l'objet article ne peut pas être envoyé directement il faut le transformer en FormData car c'est une donnée complexe
+		*/
+		const formData = new FormData();
+		formData.append('title', article.title);
+		formData.append('content', article.content);
+		formData.append('picture', article.picture);
+		formData.append('author', article.author);
+		formData.append('category', article.category);
+		formData.append('date', article.date);
+
+		//console.log("**** formData")
+		//console.log(formData)
+		/////////////////////////
+        articleServices.addArticle(formData)  //article
             .then( (res) => {
 
 				
@@ -254,7 +272,7 @@ const AddOnArticle = ({ closeAddArticle }) => {
 
 				<p className='titlePageArticle'>Créez votre article</p>
 
-				<form className="articleForm">
+				<form className="articleForm" enctype="multipart/form-data">
 					<label className="labelInputTitle">
 						Titre *:
 						<input
@@ -289,7 +307,7 @@ const AddOnArticle = ({ closeAddArticle }) => {
 
 					<label className="labelPicture">
 						Image :
-						<input type="file"  name="picture" className="picture" onChange={(e) =>articleFunction(e)} />
+						<input type="file"  name="picture" accept="image/*" className="picture" onChange={(e) =>handleFileChange(e)} />
 					</label>
 
 

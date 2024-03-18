@@ -3,6 +3,8 @@ body {
     //font-family: "Kanit", sans-serif;
     
     //background-color: red;
+
+    
 }
 
 
@@ -12,7 +14,7 @@ body {
 main {
     //border: solid blue;
     height: 1600px;
-    background-color:rgb(234, 234, 234);
+   // background-color:rgb(234, 234, 234);
     
 }
 /*enfant1*/
@@ -125,12 +127,12 @@ flex-direction: column;
     margin-top: 10px;
     }
 .conteneur-image {
-    border: solid rgb(125, 32, 161);
+    //border: solid rgb(125, 32, 161);
     display: flex;
     margin-right: 200px;
-    width: 200px;
-    height: 200px;
-   margin-top: 60px;
+    width: 40%;
+    height: 100%;
+    margin-top: 80px;
 
 }
 .secVide {

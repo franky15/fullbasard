@@ -1,11 +1,12 @@
 
 //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-import React,{useState} from "react";
+import React,{useState, useEffect} from "react";
 import { Link } from "react-router-dom"
 
 import { AddAcount } from "../../pages/publicPages";
 import Login from "../../pages/auth/Login";
 import {Contact }from "../../pages/publicPages";
+// import { use } from "../../../../back/app";
  
 //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
@@ -28,8 +29,38 @@ const HeaderPublic = () => {
 
 	})
 
+	console.log("**** filAriane")
+	console.log(filAriane)
+
 	//récupération de l'url courant
 	const currentURL = window.location.href;
+
+	console.log("**** currentURL")
+	console.log(currentURL)
+	//arrivée sur la page d'accueil
+	/*
+	useEffect( () => {
+
+		if( currentURL === "http://localhost:3001/" ){
+
+		console.log("****  on est à l' accueil")
+		setFilAriane({
+
+			...filAriane,
+			isAccueil: true,
+			isAbout: false,
+			isContact: false,
+			isBlog: false,
+			isAddAcount: false,
+			isLogin: false,
+			isLogout: false,
+
+		})
+
+	
+	}
+	},[])*/
+
 	//condition de gestion du fil d'ariane
 
 	//gestion du state du formulaire de contact
@@ -42,17 +73,6 @@ const HeaderPublic = () => {
 		lockConexion()
 		lockSignum()
 
-		setFilAriane({
-
-			...filAriane,
-			isContact: true,
-			isLogin: false,
-			isAccueil: false,
-			isAbout: false,
-			isBlog: false,
-			isAddAcount: false, 
-
-		})
     }
 	
 
@@ -66,17 +86,7 @@ const HeaderPublic = () => {
 		lockSignum()
 		lockContact()
 
-		setFilAriane({
-
-			...filAriane,
-			isLogin: true,
-			isAccueil: false,
-			isAbout: false,
-			isContact: false,
-			isBlog: false,
-			isAddAcount: false, 
-
-		})
+		
 	}
 
 	//gestion du state du formulaire de connexion
@@ -90,18 +100,7 @@ const HeaderPublic = () => {
 		lockConexion()
 		lockContact()
 
-		setFilAriane({
-
-			...filAriane,
-			isAddAcount: true, 
-			isContact: false,
-			isLogin: false,
-			isAccueil: false,
-			isAbout: false,
-			isBlog: false,
-			
-
-		})
+		
 	
 	}
 
@@ -115,31 +114,120 @@ const HeaderPublic = () => {
 
 			 <nav className="navbar">
 
-				<div className="logo"> <span className="colorLetter">F</span> ull<span className="colorLetter">B</span> asard</div>
+				<Link to="/" className="logo"> <span className="colorLetter">F</span> ull<span className="colorLetter">B</span> asard</Link>
 				<ul className="contenaireMenu">
 				
 					{
-						filAriane.isLogin  ? <li style={{ borderTop: "5px solid red" }}><Link to="/">Accueil</Link></li>
+						filAriane.isAccueil  ? (<li style={{ borderTop: "5px solid #2DBAEF", fontSize: "32px" }}><Link to="/" 
+							onClick={ ()=> setFilAriane({
+								...filAriane,isAccueil: true,isAbout: false,isContact: false,isBlog: false,isAddAcount: false,isLogin: false,
+									
+							})} >Accueil</Link></li>)
 						:
-						<li ><Link to="http://localhost:3001">Accueil</Link></li>
+						(<li><Link to="/" 
+							onClick={ ()=> setFilAriane({
+								...filAriane,isAccueil: true,isAbout: false,isContact: false,isBlog: false,isAddAcount: false,isLogin: false,
+									
+							})}>Accueil</Link></li>)
 					}
 
-					<li><Link to="/about">Qui sommes-nous</Link></li>
 					{
-						filAriane.isAbout  ? <li li style={{ borderTop: "5px solid red" }} ><Link to="/blog/articles">Blog</Link></li>
-						:
-						<li><Link to="http://localhost:3001/blog/articles">Blog</Link></li>
+						filAriane.isAbout ? (<li  style={{ borderTop: "5px solid #2DBAEF", fontSize: "40px" }}><Link to="/about"
+							onClick={ ()=> setFilAriane({
+								...filAriane,isAbout: true,isAccueil: false,isContact: false,isBlog: false,isAddAcount: false,isLogin: false,
+									
+							})}>Qui sommes-nous</Link></li>)
+						
+							:
+							(<li><Link to="/visitor/blog/about"
+							onClick={ ()=> setFilAriane({
+								...filAriane,isAbout: true,isAccueil: false,isContact: false,isBlog: false,isAddAcount: false,isLogin: false,
+									
+							})}>Qui sommes-nous</Link></li>)
+						
+					}
+			
+					<li><Link to="/visitor/blog/articles">Blog</Link></li>
+					
+					{		
+						filAriane.isContact ? (<li className="boutonContact1" style={{ borderTop: "5px solid #2DBAEF", fontSize: "40px" }} 
+							onClick={ ()=> setFilAriane({
+								...filAriane,isContact: true,isAbout: false,isAccueil: false,isBlog: false,isAddAcount: false,isLogin: false,
+									
+							})}><Link >Contact</Link></li>)
+							:
+							(<li className="boutonContact1" 
+							onClick={ ()=> setFilAriane({
+								...filAriane,isContact: true,isAbout: false,isAccueil: false,isBlog: false,isAddAcount: false,isLogin: false,
+									
+							})}><Link >Contact</Link></li>)
+					
 					
 					}
 
-					<li className="boutonContact" onClick={() => openContact()}><Link >Contact</Link></li>
+					{
+						
+						filAriane.isAddAcount ? (
+							<li className="boutonContact1 boutonConexion" style={{ borderTop: "5px solid #2DBAEF", fontSize: "40px" }} 
+								onClick={() => {
+									openSignum();
+									//openConexion();
+									setFilAriane({
+										...filAriane,isAddAcount: true,isLogin: false,	isContact: false,isAbout: false,isAccueil: false,isBlog: false,	
+									});
+										
+								}}
+							><Link ><i class="fa-solid fa-user-plus"></i></Link>
+										
+							</li>
+						) : (
+							<li className="boutonContact1 boutonConexion" 
+								onClick={() => {
+									openSignum();
+									//openConexion();
+									setFilAriane({
+										...filAriane,isAddAcount: true,isLogin: false,isContact: false,isAbout: false,isAccueil: false,isBlog: false,	isAddAcount: false,
+									});
+										
+								}}
+							><Link ><i class="fa-solid fa-user-plus"></i></Link>
+										
+							</li>
+						)
 
-					<li onClick={() => openSignum()}><Link >Créer un compte</Link></li>
+					
+					
+					}
+
+
 					{	
 
-						filAriane.isLogin  ? <li className="boutonContact boutonConexion" onClick={() => openConexion()}><Link ><i class="fa-solid fa-right-to-bracket"></i></Link></li>
-						:
-						<li className="boutonContact boutonConexion" onClick={() => openConexion()}><Link ><i class="fa-solid fa-right-to-bracket"></i></Link></li>
+						filAriane.isLogin ? (
+							<li className="boutonContact1 boutonConexion" style={{ borderTop: "5px solid #2DBAEF", fontSize: "40px" }} 
+								onClick={() => {
+									openConexion();
+									setFilAriane({
+										...filAriane,isLogin: true,	isContact: false,isAbout: false,isAccueil: false,isBlog: false,	isAddAcount: false,
+									});
+										
+								}}
+							><Link ><i className="fa-solid fa-right-to-bracket"></i></Link>
+										
+							</li>
+						) : (
+							<li className="boutonContact1 boutonConexion" 
+								onClick={() => {
+									openConexion();
+									setFilAriane({
+										...filAriane,isLogin: true,	isContact: false,isAbout: false,isAccueil: false,isBlog: false,	isAddAcount: false,
+									});
+										
+								}}
+							><Link ><i className="fa-solid fa-right-to-bracket"></i></Link>
+										
+							</li>
+						)
+
 
 
 					}
